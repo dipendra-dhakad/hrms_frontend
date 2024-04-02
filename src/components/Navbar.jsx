@@ -5,11 +5,22 @@ import { IoSearchOutline } from "react-icons/io5";
 import { BsFillQuestionSquareFill } from "react-icons/bs";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import {setSidebar} from '../redux/slices/SidebarSlice'
 export const Navbar = () => {
+  const sidebar = useSelector((state)=>state.sidebar)
+  const dispatch = useDispatch();
+
+    const handleSidebar = () =>{
+        dispatch(setSidebar(true))
+        console.log("sidebar",sidebar)
+    }
+
   return (
-    <div className=' flex flex-row  bg-slate-300 items-center justify-around w-[100vw] h-[70px] text-black border-r-black'>
-     <div className='flex flex-row items-center justify-center gap-3'>
-        <div className='text-3xl'>
+    <div className=' flex flex-row gap-0 bg-slate-300 items-center justify-evenly w-[100vw] h-[70px] text-black border-r-black'>
+      
+     <div className='flex flex-row items-center justify-end gap-3 w-[18%]'>
+        <div onClick={handleSidebar} className='text-3xl'>
             <GiHamburgerMenu />
         </div>
         <NavLink to="/">

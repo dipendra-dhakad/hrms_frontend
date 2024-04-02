@@ -1,4 +1,5 @@
 
+
 //     <div>
 //       <div className="bg-slate-200 h-[100vh]">
 //         <div className="container mx-auto w-[45%] py-2">
@@ -537,7 +538,7 @@ const Overview = () => {
           </div> */}
           <div class="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
     <AiOutlineCheck class="text-xl" />
-    <button type="submit" class="text-white text-sm font-semibold pl-3 pr-3">SAVE</button>
+    <button type="submit" onClick={handleEdit} class="text-white text-sm font-semibold pl-3 pr-3">SAVE</button>
 </div>
       </div>
           </div>
@@ -710,22 +711,26 @@ const Overview = () => {
         </div>
       </form> */}
       {
-        edit2 ? (<div className="flex flex-row items-center  justify-start gap-2 ml-5  h-[60px]">
+        !edit2 ? (<div className="flex flex-row items-center  justify-start gap-2 ml-5  h-[60px]">
         <Link to=""> <div className="text-3xl text-blue-700 rounded-full"><ImLinkedin /></div> </Link>
-        <Link to=""> 
-        <div className="text-3xl text-blue-700 rounded-full"><FaFacebook /></div></Link>
+        
+        <Link to="">   <div className="text-3xl text-blue-700 rounded-full"><FaFacebook /></div></Link>
         <Link to="">   <div className="text-3xl text-white bg-black rounded-full"><FaTwitter /></div></Link>
-      
+        <Link to="">   <div className="text-3xl text-white bg-red-500 rounded-full"><AiFillYoutube /></div></Link>
       
         </div>):( 
           <div>
-<form action="">
+<form onSubmit={handleSocialMediaSubmit}>
   <div className="pl-7">
     <div className="flex flex-row justify-start items-center m-2">
       <div className="text-3xl text-blue-700 text-center"><ImLinkedin /></div>
       <input
         className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
         type="url"
+        name="linkedinUrl"
+        value={socialMediaFormData.linkedinUrl}
+
+        onChange={handleSocialMediaChange}
         placeholder="Enter LinkedIn URL"
       />
     </div>
@@ -734,6 +739,9 @@ const Overview = () => {
       <input
         className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
         type="url"
+        onChange={handleSocialMediaChange}
+        value={socialMediaFormData.facebookUrl}
+        name="facebookUrl"
         placeholder="Enter Facebook URL"
       />
     </div>
@@ -742,7 +750,21 @@ const Overview = () => {
       <input
         className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
         type="url"
+        onChange={handleSocialMediaChange}
+        value={socialMediaFormData.twitterUrl}
         placeholder="Enter Twitter URL"
+        name="twitterUrl"
+      />
+    </div>
+    <div className="flex flex-row justify-start items-center m-2">
+      <div className="text-3xl text-blue-700  text-center"><AiFillYoutube /></div>
+      <input
+        className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
+        type="url"
+        onChange={handleSocialMediaChange}
+        placeholder="Enter youtube URL"
+        value={socialMediaFormData.youtubeUrl}
+        name="youtubeUrl"
       />
     </div>
   </div>
