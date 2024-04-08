@@ -157,7 +157,7 @@ const Login = () => {
 
   return (
     <div className="flex flex-row items-center justify-center w-full h-screen bg-slate-200">
-      <div className="w-4/5  pt-8  items-center justify-center  flex-row md:w-1/3 h-5/6  border flex mt-8 ">
+      <div className="w-4/5  pt-8  items-center justify-center  flex-row md:w-1/3 h-5/6  border flex mt-8 hidden md:block">
         <div className="ml-[30%]">
           <img
             className="pt-8 md:block hidden "

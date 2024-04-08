@@ -4,6 +4,8 @@ import { Outlet } from 'react-router-dom'
 import {Navbar} from '../components/Navbar'
 import { Sidebar } from '../components/Sidebar'
 import { useSelector } from 'react-redux'
+import { Second_sidebar } from '../components/Second_sidebar'
+
 export const CompanyProfile = () => {
    
   const {sidebar} = useSelector((state)=>state.sidebar);
@@ -11,10 +13,12 @@ export const CompanyProfile = () => {
   return (<>
   <div className='relative'>
   <div className='absolute'>
-        {sidebar ?  (<Sidebar />) : (null) }
+   
+        {sidebar ?  (<Second_sidebar/>) : (null) }
       </div>
   <Navbar/>
    <SubNav/>
+   
    <Outlet/>
   </div>
  

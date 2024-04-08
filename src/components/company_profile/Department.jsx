@@ -66,7 +66,8 @@ export const Department = () => {
                     <div>Sub Departments</div>
                     <div>Employees</div>
                 </div>
-                <div className="flex flex-col justify-between  items-center border-b-[0.3px] p-2 pl-3 border-gray-300">
+                <div className="flex flex-row
+    border-b-[0.3px] p-2 pl-3 border-gray-300 justify-center">
                    
                 {inputFields.map((inputField, index) => (
                 <div key={inputField.id} className="flex">
@@ -77,7 +78,7 @@ export const Department = () => {
                         className="focus:outline-blue-300 p-1 ml-3 border border-gray-300 form-input"
                     />
                     {index === inputFields.length - 1 && (
-                        <div className="flex flex-row items-center ml-4 text-blue-500">
+                        <div className="flex flex-row items-center text-blue-500">
                             <button className="text-3xl font-bold cursor-pointer p-2" onClick={handleAddFields}>
                                 <AiFillPlusCircle />
                             </button>
@@ -94,10 +95,7 @@ export const Department = () => {
                     )}
                 </div>
             ))}
-                  <div className="w-[35%] pr-4  flex justify-end">
-                    <MdOutlineDeleteOutline />
-                  </div>
-                        
+            
                     
                 </div>
                 

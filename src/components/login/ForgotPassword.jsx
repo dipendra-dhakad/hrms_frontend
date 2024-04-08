@@ -33,7 +33,7 @@ const ForgotPassword = () => {
   }
   return (
     <div className="flex flex-row items-center justify-center w-full h-screen gap-0 bg-slate-200">
-      <div className="w-1/3 h-3/4 border flex mt-3 flex-row items-center justify-end">
+      <div className="w-1/3 h-3/4 border flex mt-3 flex-row items-center justify-end hidden md:block">
         <div className="flex flex-row items-center justify-end">
           <img
             className="pt-8"

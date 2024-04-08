@@ -37,6 +37,8 @@ import { SetupPayroll } from "../components/payroll/SetupPayroll";
 import { Declaration } from "postcss";
 import { AdvanceSettings } from "../components/payroll/AdvanceSettings";
 import { AuditHistory } from "../components/payroll/AuditHistory";
+import Statutory_temprary from "../components/company_profile/Statutory_temprary";
+import { Personal } from "../components/my_profile/Personal";
 const router = createBrowserRouter([
 
   {
@@ -91,6 +93,10 @@ const router = createBrowserRouter([
     children:[{
         path:"/my-profile",
         element:<Work/>
+    },
+    {
+        path:"personal",
+        element:<Personal/>
     },
     {
         path:"work",

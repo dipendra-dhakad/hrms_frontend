@@ -131,63 +131,63 @@ console.log(sidebar)
     }
 
     return (
-        <div className="w-[250px] h-[100vh] flex flex-col bg-slate-50  items-center ">
-            <div className="flex flex-row  items-center w-full  p-4 border-b  border-black">
-                <div className="w-[50%] ">Menu</div>
-                <div className="w-[50%] self-end pl-[30%] text-xl" onClick={handleSidebar}><ImCross/></div>
+        <div className="w-[230px] h-[100vh] flex flex-col bg-slate-50  items-center ">
+            <div className="flex flex-row  justify-center items-center w-full  p-5 border-b  border-black">
+                <div className="w-[50%] text-lg font-semibold text-slate-700 uppercase ">Menu</div>
+                <div className="w-[50%] self-end pl-[40%] pb-1 text-medium text-center text-slate-700 cursor-pointer" onClick={handleSidebar}><ImCross/></div>
             </div>
             <div className="flex flex-col items-center justify-evenly w-[95%]">
                 <div className="flex flex-row  w-full gap-3 p-1 pl-2">
                     <div className="text-2xl text-blue-500 self-start "> <AiOutlineDashboard /></div>
-                    <div className="w-[80%] ">DashBoard</div>
+                    <div className="w-[80%] text-sm  ">DashBoard</div>
                 </div>
-                <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
+                <div className="flex flex-row  w-full gap-3 p-1 pl-2 ">
                     <div className="flex flex-row gap-3 " onClick={() => setCompanyProfileDropdownOpen(!companyProfileDropdownOpen)}>
-                        <BsBuildings className="text-2xl text-blue-500"/> Company Profile
+                        <BsBuildings className="text-2xl text-blue-500"/><div className='text-sm hover:text-blue-500 '> Company Profile</div>
                     </div>
                     <div className=" ml-5 flex text-3xl text-center text-blue-500 cursor-pointer" onClick={() => setCompanyProfileDropdownOpen(!companyProfileDropdownOpen)}>
                         {companyProfileDropdownOpen ? <BiChevronUp /> : <BiChevronDown />}
                     </div>
                 </div>
                 {companyProfileDropdownOpen && (
-                    <div className='w-full pl-11'>
-                       <Link to="/company-profile/address"> <div>Address</div></Link>
-                       <Link to="/company-profile/department"> <div>Department</div></Link>
-                       <Link to="/company-profile/designation"> <div>Designations</div></Link>
-                        <Link to='/company-profile/annoucements'><div>Announcements</div></Link>
-                      <Link to="/company-profile/policies">  <div>Policies & Statutory Info</div></Link>
-                       <Link to="/company-profile/admin"> <div>Admins</div></Link>
+                    <div className='w-full pl-11 text-sm '>
+                       <Link to="/company-profile/address"> <div className='text-sm hover:text-blue-500 '>Address</div></Link>
+                       <Link to="/company-profile/department"> <div className='text-sm hover:text-blue-500 ' >Department</div></Link>
+                       <Link to="/company-profile/designation"> <div className='text-sm hover:text-blue-500 '>Designations</div></Link>
+                        <Link to='/company-profile/annoucements'><div className='text-sm hover:text-blue-500 '>Announcements</div></Link>
+                      <Link to="/company-profile/policies">  <div className='text-sm hover:text-blue-500 '>Policies & Statutory Info</div></Link>
+                       <Link to="/company-profile/admin"> <div className='text-sm hover:text-blue-500 '>Admins</div></Link>
                         <Link to='myplan'><div>My Plan</div></Link>
                     </div>
                 )}
-                <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
+                <div className="flex flex-row  w-full gap-7 p-1 pl-2 ">
                     <div className="flex flex-row gap-3 " onClick={() => setMyProfileDropdownOpen(!myProfileDropdownOpen)}>
-                        <CgProfile className="text-2xl text-blue-500" /> My Profile
+                        <CgProfile className="text-2xl text-blue-500" /> <div className='text-sm hover:text-blue-500 '>My Profile</div>
                     </div>
                     <div className="w-[35%] justify-end flex text-3xl text-center text-blue-500 cursor-pointer" onClick={() => setMyProfileDropdownOpen(!myProfileDropdownOpen)}>
                         {myProfileDropdownOpen ? <BiChevronUp /> : <BiChevronDown />}
                     </div>
                 </div>
                 {myProfileDropdownOpen && (
-                    <div className='w-full pl-11'>
-                        <Link to="/my-profile/work"> <div>Work</div></Link>
-                       <Link  to="/my-profile/team"> <div>Team</div></Link>
-                       <Link  to="/my-profile/education"> <div>Education</div></Link>
-                        <Link  to="/my-profile/family">  <div>Family</div></Link>
-                        <Link to="/my-profile/documents">  <div>Documents</div></Link>
-                        <Link to="/my-profile/file-manager">   <div>File Manager</div></Link>
+                    <div className='w-full pl-11 text-sm'>
+                        <Link to="/my-profile/work"> <div className='text-sm hover:text-blue-500 '>Work</div></Link>
+                       <Link  to="/my-profile/team"> <div className='text-sm hover:text-blue-500 '>Team</div></Link>
+                       <Link  to="/my-profile/education"> <div className='text-sm hover:text-blue-500 '>Education</div></Link>
+                        <Link  to="/my-profile/family">  <div className='text-sm hover:text-blue-500 '>Family</div></Link>
+                        <Link to="/my-profile/documents">  <div className='text-sm hover:text-blue-500 '>Documents</div></Link>
+                        <Link to="/my-profile/file-manager">   <div className='text-sm hover:text-blue-500 '>File Manager</div></Link>
                     </div>
                 )}
-                <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
+                <div className="flex flex-row  w-full gap-7 p-1 pl-2 ">
                     <div className="flex flex-row gap-3 " onClick={() => setAttendanceDropdownOpen(!attendanceDropdownOpen)}>
-                        <CiBellOn className="text-2xl text-blue-500" /> Attendance
+                        <CiBellOn className="text-2xl text-blue-500" /> <div className='text-sm'>Attendance</div>
                     </div>
                     <div className="w-[32%] justify-end flex text-3xl text-center text-blue-500 cursor-pointer" onClick={() => setAttendanceDropdownOpen(!attendanceDropdownOpen)}>
                         {attendanceDropdownOpen ? <BiChevronUp /> : <BiChevronDown />}
                     </div>
                 </div>
                 {attendanceDropdownOpen && (
-                    <div className='w-full pl-11'>
+                    <div className='w-full pl-11 text-sm'>
                        <Link to=" /attendence/logs"> <div>Logs</div></Link>
                         <div to="/attendence/automation-logs">Automation Logs</div>
                         <div to="/attendence/rules">Rules</div>
@@ -196,31 +196,31 @@ console.log(sidebar)
                         <div>Settings</div>
                     </div>
                 )}
-                <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
+                <div className="flex flex-row  w-full gap-8 p-1 pl-2 ">
                     <div className="flex flex-row gap-3 " onClick={() => setLeaveDropdownOpen(!leaveDropdownOpen)}>
-                        <GiSchoolBag className="text-2xl text-blue-500" /> Leave
+                        <GiSchoolBag className="text-2xl text-blue-500" /> <div className='text-sm'>Leave</div>
                     </div>
                     <div className="w-[47%] justify-end flex text-3xl text-center text-blue-500 cursor-pointer" onClick={() => setLeaveDropdownOpen(!leaveDropdownOpen)}>
                         {leaveDropdownOpen ? <BiChevronUp /> : <BiChevronDown />}
                     </div>
                 </div>
                 {leaveDropdownOpen && (
-                    <div className='w-full pl-11'>
+                    <div className='w-full pl-11 text-sm'>
                         <Link to="/leave/logs"><div>Logs</div></Link>
                         <div to="/leave/rules">Rules</div>
                         <div to="/leave/balance">Balance</div>
                     </div>
                 )}
-                <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
+                <div className="flex flex-row  w-full gap-8 p-1 pl-2 ">
                     <div className="flex flex-row gap-3 " onClick={() => setPayrollDropdownOpen(!payrollDropdownOpen)}>
-                        <FaHandHoldingUsd className="text-2xl text-blue-500" /> Payroll
+                        <FaHandHoldingUsd className="text-2xl text-blue-500" /><div className='text-sm'> Payroll</div>
                     </div>
                     <div className="w-[44.5%] justify-end flex text-3xl text-center text-blue-500 cursor-pointer" onClick={() => setPayrollDropdownOpen(!payrollDropdownOpen)}>
                         {payrollDropdownOpen ? <BiChevronUp /> : <BiChevronDown />}
                     </div>
                 </div>
                 {payrollDropdownOpen && (
-                    <div className='w-full pl-11'>
+                    <div className='w-full pl-11 text-sm'>
                     <Link to="/payroll/run-payroll">    <div>Run Payroll</div></Link>
                    <Link to="/payroll/setup-payroll">      <div>Setup Payroll</div></Link>
                     <Link to="/payroll/declaration" >    <div>Declaration</div></Link>
@@ -229,23 +229,23 @@ console.log(sidebar)
                     </div>
                 )}
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
-                    <Link to="">          <div className="flex flex-row gap-3 "><FaReceipt className="text-2xl text-blue-500"  /> Expense Payout</div></Link>
+                    <Link to="">          <div className="flex flex-row gap-3 "><FaReceipt className="text-2xl text-blue-500"  /> <div className='text-sm'>Expense Payout</div></div></Link>
           
                 </div>
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
-                    <div className="flex flex-row gap-3 "><SlEnvolopeLetter  className="text-2xl text-blue-500"/> Letters</div>
+                    <div className="flex flex-row gap-3 "><SlEnvolopeLetter  className="text-2xl text-blue-500"/><div className='text-sm'> Letters</div></div>
                 </div>
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
-                    <div  className="flex flex-row gap-3 "><HiOutlineDocumentReport className="text-2xl text-blue-500"/> Reports</div>
+                    <div  className="flex flex-row gap-3 "><HiOutlineDocumentReport className="text-2xl text-blue-500"/> <div className='text-sm'>Reports</div> </div>
                 </div>
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
-                    <div  className="flex flex-row gap-3 "><MdManageAccounts className="text-2xl text-blue-500" /> Assets Management</div>
+                    <div  className="flex flex-row gap-3 "><MdManageAccounts className="text-2xl text-blue-500" /> <div className='text-sm'> Assets Management</div></div>
                 </div>
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
-                    <div className="flex flex-row gap-3 "><SlCalender className="text-2xl text-blue-500" /> Holiday Calender</div>
+                    <div className="flex flex-row gap-3 "><SlCalender className="text-2xl text-blue-500" /> <div className='text-sm'>Holiday Calender</div></div>
                 </div>
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">
-                    <div className="flex flex-row gap-3 "><ImConnection className="text-2xl text-blue-500" /> Connect</div>
+                    <div className="flex flex-row gap-3 "><ImConnection className="text-2xl text-blue-500" /> <div className='text-sm'>Connect</div></div>
                 </div>
             </div>
         </div>
