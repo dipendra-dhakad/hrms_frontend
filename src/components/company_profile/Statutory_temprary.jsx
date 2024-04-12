@@ -136,7 +136,7 @@
 // //           ))}
 // //             </form>
 // //             </div>
-           
+
 // //         );
 // //       case "CompanySecretary":
 // //         return (
@@ -429,7 +429,6 @@ import { AiFillPlusCircle } from "react-icons/ai";
 
 const FormSection = ({ title, fields, handleRemoveFields, handleChange }) => (
   <div>
-   
     <form>
       <div className="flex flex-row items-center justify-between mt-2">
         <div className="w-1/3">Name</div>
@@ -437,13 +436,16 @@ const FormSection = ({ title, fields, handleRemoveFields, handleChange }) => (
         <div className="w-1/3">Phone Number</div>
       </div>
       {fields.map((field, index) => (
-        <div key={index} className="flex flex-row items-center justify-between mt-2">
+        <div
+          key={index}
+          className="flex flex-row items-center justify-between mt-2"
+        >
           <input
             type="text"
             name="name"
             placeholder="Enter name"
             value={field.name}
-            onChange={(e) => handleChange(e, index, 'name')}
+            onChange={(e) => handleChange(e, index, "name")}
             className="w-1/3 px-2 py-1 border border-gray-400 rounded-md"
           />
           <input
@@ -451,7 +453,7 @@ const FormSection = ({ title, fields, handleRemoveFields, handleChange }) => (
             name="email"
             placeholder="Enter email"
             value={field.email}
-            onChange={(e) => handleChange(e, index, 'email')}
+            onChange={(e) => handleChange(e, index, "email")}
             className="w-1/3 px-2 py-1 border border-gray-400 rounded-md"
           />
           <input
@@ -459,10 +461,15 @@ const FormSection = ({ title, fields, handleRemoveFields, handleChange }) => (
             name="phone"
             placeholder="Enter phone"
             value={field.phone}
-            onChange={(e) => handleChange(e, index, 'phone')}
+            onChange={(e) => handleChange(e, index, "phone")}
             className="w-1/3 px-2 py-1 border border-gray-400 rounded-md"
           />
-          <button className="text-red-500 font-bold" onClick={() => handleRemoveFields(index)}>Remove</button>
+          <button
+            className="text-red-500 font-bold"
+            onClick={() => handleRemoveFields(index)}
+          >
+            Remove
+          </button>
         </div>
       ))}
     </form>
@@ -471,21 +478,36 @@ const FormSection = ({ title, fields, handleRemoveFields, handleChange }) => (
 
 export const Statutory_temprary = () => {
   const [activeSection, setActiveSection] = useState("Directors");
-  const [directorsFields, setDirectorsFields] = useState([{ name: "", email: "", phone: "" }]);
-  const [auditorsFields, setAuditorsFields] = useState([{ name: "", email: "", phone: "" }]);
-  const [companySecretaryFields, setCompanySecretaryFields] = useState([{ name: "", email: "", phone: "" }]);
+  const [directorsFields, setDirectorsFields] = useState([
+    { name: "", email: "", phone: "" },
+  ]);
+  const [auditorsFields, setAuditorsFields] = useState([
+    { name: "", email: "", phone: "" },
+  ]);
+  const [companySecretaryFields, setCompanySecretaryFields] = useState([
+    { name: "", email: "", phone: "" },
+  ]);
   const [showButtons, setShowButtons] = useState(false);
 
   const handleAddFields = () => {
     switch (activeSection) {
       case "Directors":
-        setDirectorsFields([...directorsFields, { name: "", email: "", phone: "" }]);
+        setDirectorsFields([
+          ...directorsFields,
+          { name: "", email: "", phone: "" },
+        ]);
         break;
       case "Auditors":
-        setAuditorsFields([...auditorsFields, { name: "", email: "", phone: "" }]);
+        setAuditorsFields([
+          ...auditorsFields,
+          { name: "", email: "", phone: "" },
+        ]);
         break;
       case "CompanySecretary":
-        setCompanySecretaryFields([...companySecretaryFields, { name: "", email: "", phone: "" }]);
+        setCompanySecretaryFields([
+          ...companySecretaryFields,
+          { name: "", email: "", phone: "" },
+        ]);
         break;
       default:
         break;
@@ -502,7 +524,9 @@ export const Statutory_temprary = () => {
         setAuditorsFields(auditorsFields.filter((_, i) => i !== index));
         break;
       case "CompanySecretary":
-        setCompanySecretaryFields(companySecretaryFields.filter((_, i) => i !== index));
+        setCompanySecretaryFields(
+          companySecretaryFields.filter((_, i) => i !== index)
+        );
         break;
       default:
         break;
@@ -513,13 +537,25 @@ export const Statutory_temprary = () => {
     const newValue = e.target.value;
     switch (activeSection) {
       case "Directors":
-        setDirectorsFields(directorsFields.map((field, i) => i === index ? { ...field, [fieldName]: newValue } : field));
+        setDirectorsFields(
+          directorsFields.map((field, i) =>
+            i === index ? { ...field, [fieldName]: newValue } : field
+          )
+        );
         break;
       case "Auditors":
-        setAuditorsFields(auditorsFields.map((field, i) => i === index ? { ...field, [fieldName]: newValue } : field));
+        setAuditorsFields(
+          auditorsFields.map((field, i) =>
+            i === index ? { ...field, [fieldName]: newValue } : field
+          )
+        );
         break;
       case "CompanySecretary":
-        setCompanySecretaryFields(companySecretaryFields.map((field, i) => i === index ? { ...field, [fieldName]: newValue } : field));
+        setCompanySecretaryFields(
+          companySecretaryFields.map((field, i) =>
+            i === index ? { ...field, [fieldName]: newValue } : field
+          )
+        );
         break;
       default:
         break;
@@ -542,7 +578,9 @@ export const Statutory_temprary = () => {
         <div className="flex flex-row justify-start items-center">
           <button
             className={`px-2 py-1 rounded-md mr-2 ${
-              activeSection === "Directors" ? "bg-blue-500 text-white" : "bg-gray-200"
+              activeSection === "Directors"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
             }`}
             onClick={() => setActiveSection("Directors")}
           >
@@ -550,7 +588,9 @@ export const Statutory_temprary = () => {
           </button>
           <button
             className={`px-2 py-1 rounded-md mr-2 ${
-              activeSection === "Auditors" ? "bg-blue-500 text-white" : "bg-gray-200"
+              activeSection === "Auditors"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
             }`}
             onClick={() => setActiveSection("Auditors")}
           >
@@ -558,7 +598,9 @@ export const Statutory_temprary = () => {
           </button>
           <button
             className={`px-2 py-1 rounded-md mr-2 ${
-              activeSection === "CompanySecretary" ? "bg-blue-500 text-white" : "bg-gray-200"
+              activeSection === "CompanySecretary"
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200"
             }`}
             onClick={() => setActiveSection("CompanySecretary")}
           >
@@ -570,7 +612,13 @@ export const Statutory_temprary = () => {
         </div>
         <FormSection
           title={activeSection}
-          fields={activeSection === "Directors" ? directorsFields : activeSection === "Auditors" ? auditorsFields : companySecretaryFields}
+          fields={
+            activeSection === "Directors"
+              ? directorsFields
+              : activeSection === "Auditors"
+              ? auditorsFields
+              : companySecretaryFields
+          }
           handleRemoveFields={handleRemoveFields}
           handleChange={handleChange}
         />
@@ -608,4 +656,3 @@ export const Statutory_temprary = () => {
 };
 
 export default Statutory_temprary;
-

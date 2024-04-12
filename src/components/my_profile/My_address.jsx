@@ -249,33 +249,32 @@
 // }
 
 // export default My_address;
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { setOnEdit3 } from '../../redux/slices/MyprofileSlice';
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setOnEdit3 } from "../../redux/slices/MyprofileSlice";
 
 export const My_address = () => {
-
   const { onEdit3 } = useSelector((state) => state.myprofile);
   const dispatch = useDispatch();
   const [currentAddress, setCurrentAddress] = useState({
-    currentAddressLine1: '',
-    currentAddressLine2: '',
-    currentCountry: '',
-    currentState: '',
-    currentCity: '',
-    currentPincode: '',
-    houseType: '',
-    stayingSince: '',
-    livingSince: ''
+    currentAddressLine1: "",
+    currentAddressLine2: "",
+    currentCountry: "",
+    currentState: "",
+    currentCity: "",
+    currentPincode: "",
+    houseType: "",
+    stayingSince: "",
+    livingSince: "",
   });
 
   const [permanentAddress, setPermanentAddress] = useState({
-    permanentAddressLine1: '',
-    permanentAddressLine2: '',
-    permanentCountry: '',
-    permanentState: '',
-    permanentCity: '',
-    permanentPincode: ''
+    permanentAddressLine1: "",
+    permanentAddressLine2: "",
+    permanentCountry: "",
+    permanentState: "",
+    permanentCity: "",
+    permanentPincode: "",
   });
 
   const [sameAsCurrent, setSameAsCurrent] = useState(false);
@@ -283,14 +282,14 @@ export const My_address = () => {
   const handleChangeCurrentAddress = (e) => {
     setCurrentAddress({
       ...currentAddress,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const handleChangePermanentAddress = (e) => {
     setPermanentAddress({
       ...permanentAddress,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -299,32 +298,31 @@ export const My_address = () => {
     // If checkbox is checked, copy current address to permanent address
     if (!sameAsCurrent) {
       setPermanentAddress({
-        ...currentAddress
+        ...currentAddress,
       });
     } else {
       // If checkbox is unchecked, reset permanent address fields
       setPermanentAddress({
-        permanentAddressLine1: '',
-        permanentAddressLine2: '',
-        permanentCountry: '',
-        permanentState: '',
-        permanentCity: '',
-        permanentPincode: ''
+        permanentAddressLine1: "",
+        permanentAddressLine2: "",
+        permanentCountry: "",
+        permanentState: "",
+        permanentCity: "",
+        permanentPincode: "",
       });
     }
   };
 
   const handleSave = () => {
     // Implement save functionality here
-    console.log('Saving...');
+    console.log("Saving...");
   };
   const handleEdit = () => {
     dispatch(setOnEdit3(!onEdit3));
-  }
+  };
 
   return (
     <div className="max-w-4xl mx-auto bg-slate-50 pb-2 shadow rounded-md">
-     
       <div className="grid grid-cols-2 ">
         <div>
           <h3 className="text-lg font-semibold mb-4">
@@ -393,14 +391,19 @@ export const My_address = () => {
             <option value="house">House</option>
           </select>
           <div>
-            <label htmlFor="stayingSince" className='pl-2 text-gray-700 pt-1 text-center'>Living Since</label>
+            <label
+              htmlFor="stayingSince"
+              className="pl-2 text-gray-700 pt-1 text-center"
+            >
+              Living Since
+            </label>
             <input
               type="date"
               name="stayingSince"
               placeholder="Staying Since"
               value={currentAddress.stayingSince}
               onChange={handleChangeCurrentAddress}
-              onFocus={(e) => e.target.value = ''}
+              onFocus={(e) => (e.target.value = "")}
               className="border border-gray-300 rounded-md p-2 w-full mt-2"
             />
           </div>
@@ -479,7 +482,9 @@ export const My_address = () => {
           onChange={handleCheckboxChange}
           className="h-4 w-4 mr-2 border border-gray-300 rounded-md"
         />
-        <label htmlFor="same-address" className="text-sm font-medium">Permanent address is the same as current address</label>
+        <label htmlFor="same-address" className="text-sm font-medium">
+          Permanent address is the same as current address
+        </label>
       </div>
       <div className="flex justify-end mt-6">
         <button
@@ -499,6 +504,6 @@ export const My_address = () => {
       </div>
     </div>
   );
-}
+};
 
 export default My_address;

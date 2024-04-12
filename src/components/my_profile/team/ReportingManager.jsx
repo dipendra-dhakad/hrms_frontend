@@ -1,4 +1,4 @@
-// import { AiFillPlusCircle } from "react-icons/ai"; 
+// import { AiFillPlusCircle } from "react-icons/ai";
 // import React from 'react'
 
 // export const ReportingManager = () => {
@@ -11,8 +11,8 @@
 //                 <div>Department</div>
 //                 <div>Designaion</div>
 //             </div>
-            // <div>No primary manager assigned</div>
-            // <div>No secondary Manager assigned</div>
+// <div>No primary manager assigned</div>
+// <div>No secondary Manager assigned</div>
 //             <div><form action="">
 //                 <div>
 //                     <input type="text" placeholder='Select Employee' />
@@ -134,12 +134,12 @@
 
 // export default ReportingManager;
 
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { AiFillPlusCircle, AiOutlineDelete } from "react-icons/ai";
 
 const ReportingManager = () => {
   const [fields, setFields] = useState([]);
-  const [newField, setNewField] = useState({ employee: '', type: '' });
+  const [newField, setNewField] = useState({ employee: "", type: "" });
   const [showButtons, setShowButtons] = useState(false);
 
   const handleChange = (index, e) => {
@@ -151,7 +151,7 @@ const ReportingManager = () => {
 
   const handleAddField = () => {
     setFields([...fields, newField]);
-    setNewField({ employee: '', type: '' });
+    setNewField({ employee: "", type: "" });
     setShowButtons(true);
   };
 
@@ -163,7 +163,7 @@ const ReportingManager = () => {
 
   const handleSave = () => {
     // Implement your save logic here
-    console.log('Fields:', fields);
+    console.log("Fields:", fields);
     setShowButtons(false);
   };
 
@@ -174,19 +174,21 @@ const ReportingManager = () => {
   };
 
   return (
-    <div className='w-full p-2 pl-3 shadow-xl'>
-      <div className='flex flex-col w-full'>
-      <div className='text-xl font-semibold mb-4 ml-1 uppercase border-b  border-gray-700'>Reporting manager</div>
-        <div className='flex flex-row gap-5 justify-around items-center mb-2 border-b border-gray-600  p-3'>
+    <div className="w-full p-2 pl-3 shadow-xl">
+      <div className="flex flex-col w-full">
+        <div className="text-xl font-semibold mb-4 ml-1 uppercase border-b  border-gray-700">
+          Reporting manager
+        </div>
+        <div className="flex flex-row gap-5 justify-around items-center mb-2 border-b border-gray-600  p-3">
           <div className="w-1/4">Name</div>
           <div className="w-1/4">Type</div>
           <div className="w-1/4">Department</div>
           <div className="w-1/4">Designation</div>
         </div>
-    <div className='flex flex-col border-b border-gray-700 p-3 gap-2'>
-    <div>No primary manager assigned</div>
-        <div>No secondary Manager assigned</div>
-    </div>
+        <div className="flex flex-col border-b border-gray-700 p-3 gap-2">
+          <div>No primary manager assigned</div>
+          <div>No secondary Manager assigned</div>
+        </div>
         {fields.map((field, index) => (
           <div key={index} className="flex items-center gap-2 p-2">
             <input

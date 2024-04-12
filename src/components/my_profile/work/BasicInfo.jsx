@@ -1,4 +1,3 @@
-
 // import React, { useState } from 'react';
 // import { RxCross2 } from "react-icons/rx";
 // import { AiOutlineCheck } from "react-icons/ai";
@@ -48,7 +47,7 @@
 //             </button>
 //           </div>
 //         </div>
-   
+
 //       {showForm ? (
 //        <div className='px-1'> <form onSubmit={handleSubmit}>
 //        <div className="grid grid-cols-2 gap-4 px-3">
@@ -131,7 +130,7 @@
 //            />
 //          </div>
 //        </div>
-    
+
 //        <div className="flex justify-end mt-4">
 //            <div className="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 hover:scale-105 border border-gray-300"    onClick={() => setShowForm(false)}>
 //              <RxCross2 className="text-black text-sm font-semibold" />
@@ -169,7 +168,7 @@
 //             <span className="data-label">Probation Period:</span>
 //             <span className="data-value">{formData.probationPeriod}</span>
 //           </div>
-        
+
 //         </div>
 //       )}
 //     </div>
@@ -177,20 +176,20 @@
 // };
 
 // export default BasicInfo;
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import { AiOutlineCheck } from "react-icons/ai";
 import { BiPencil } from "react-icons/bi";
 
 export const BasicInfo = () => {
   const [formData, setFormData] = useState({
-    employeeID: '',
-    employeeType: '',
-    dateOfJoining: '',
-    workLocation: '',
-    workExperienceYears: '',
-    workExperienceMonths: '',
-    probationPeriod: ''
+    employeeID: "",
+    employeeType: "",
+    dateOfJoining: "",
+    workLocation: "",
+    workExperienceYears: "",
+    workExperienceMonths: "",
+    probationPeriod: "",
   });
 
   const [showForm, setShowForm] = useState(false);
@@ -202,15 +201,15 @@ export const BasicInfo = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Posting data:', formData);
+    console.log("Posting data:", formData);
     setFormData({
-      employeeID: '',
-      employeeType: '',
-      dateOfJoining: '',
-      workLocation: '',
-      workExperienceYears: '',
-      workExperienceMonths: '',
-      probationPeriod: ''
+      employeeID: "",
+      employeeType: "",
+      dateOfJoining: "",
+      workLocation: "",
+      workExperienceYears: "",
+      workExperienceMonths: "",
+      probationPeriod: "",
     });
     setShowForm(false);
   };
@@ -220,18 +219,18 @@ export const BasicInfo = () => {
   };
 
   return (
-    <div className='w-full p-1 shadow-xl'>
-      <div className='flex flex-row items-center justify-between px-1 border-b border-gray-600'>
+    <div className="w-full p-1 shadow-xl">
+      <div className="flex flex-row items-center justify-between px-1 border-b border-gray-600">
         <h2 className="text-xl font-semibold mb-4">Basic Information</h2>
         <div className="flex justify-end pr-3">
           <button type="button" onClick={handleEdit} className="btn-edit">
-            <BiPencil/>
+            <BiPencil />
           </button>
         </div>
       </div>
 
       {showForm ? (
-        <div className='px-1'> 
+        <div className="px-1">
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 px-3">
               <div className="flex flex-col">
@@ -289,7 +288,7 @@ export const BasicInfo = () => {
                     value={formData.workExperienceYears}
                     onChange={handleChange}
                   />
-                 
+
                   <input
                     type="text"
                     name="workExperienceMonths"
@@ -298,7 +297,6 @@ export const BasicInfo = () => {
                     value={formData.workExperienceMonths}
                     onChange={handleChange}
                   />
-                  
                 </div>
               </div>
               <div className="flex flex-col">
@@ -315,13 +313,23 @@ export const BasicInfo = () => {
             </div>
 
             <div className="flex justify-end mt-4">
-              <div className="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 hover:scale-105 border border-gray-300" onClick={() => setShowForm(false)}>
+              <div
+                className="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 hover:scale-105 border border-gray-300"
+                onClick={() => setShowForm(false)}
+              >
                 <RxCross2 className="text-black text-sm font-semibold" />
-                <button className="text-black text-sm font-semibold p-0">CANCEL</button>
+                <button className="text-black text-sm font-semibold p-0">
+                  CANCEL
+                </button>
               </div>
               <div className="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
                 <AiOutlineCheck className="text-xl" />
-                <button type="submit" className="text-white text-sm font-semibold pl-3 pr-3">SAVE</button>
+                <button
+                  type="submit"
+                  className="text-white text-sm font-semibold pl-3 pr-3"
+                >
+                  SAVE
+                </button>
               </div>
             </div>
           </form>
@@ -346,7 +354,10 @@ export const BasicInfo = () => {
           </div>
           <div className="data-item">
             <span className="data-label">Work Experience:</span>
-            <span className="data-value">{formData.workExperienceYears} years {formData.workExperienceMonths} months</span>
+            <span className="data-value">
+              {formData.workExperienceYears} years{" "}
+              {formData.workExperienceMonths} months
+            </span>
           </div>
           <div className="data-item">
             <span className="data-label">Probation Period:</span>

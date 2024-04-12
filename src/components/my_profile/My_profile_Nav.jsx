@@ -1,7 +1,6 @@
 // import React from 'react'
-// import { Link } from 'react-router-dom'; 
+// import { Link } from 'react-router-dom';
 // export const My_profile_Nav = () => {
- 
 
 //     const categoryArray =  [
 //        "Stationery",
@@ -19,11 +18,10 @@
 //         "File Manager"
 //       ]
 
-   
 //   return (
 //     <nav className="bg-gray-800 py-4 w-[100vw] ">
 //       <div className="container mx-auto flex justify-center items-center">
-       
+
 //         <ul className="flex space-x-4">
 //           {categoryArray.map((category, index) => (
 //             <li key={index}>
@@ -155,9 +153,9 @@
 // };
 
 // export default My_profile_Nav;
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import React, { useRef } from "react";
+import { Link } from "react-router-dom";
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 
 export const My_profile_Nav = () => {
   const navRef = useRef(null);
@@ -179,7 +177,7 @@ export const My_profile_Nav = () => {
     "Leave",
     "Payroll",
     "E-Exit",
-    "File Manager"
+    "File Manager",
   ];
 
   return (
@@ -195,7 +193,7 @@ export const My_profile_Nav = () => {
           <div
             ref={navRef}
             className="flex space-x-4"
-            style={{ width: '44%', overflowX: 'hidden' }}
+            style={{ width: "44%", overflowX: "hidden" }}
           >
             {categoryArray.map((category, index) => (
               <Link

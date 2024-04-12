@@ -40,184 +40,179 @@ import { AuditHistory } from "../components/payroll/AuditHistory";
 import Statutory_temprary from "../components/company_profile/Statutory_temprary";
 import { Personal } from "../components/my_profile/Personal";
 const router = createBrowserRouter([
-
   {
     path: "/company-profile",
-    element: <CompanyProfile/>,
-    children:[{
-        path:"/company-profile",
-        element:<Overview/>
-    },
-    {
-        path:"overview",
-        element:<Overview/>
-    },
-    {
-        path:"address",
-        element:<Address/>
-    },
-    {
-        path:"admin",
-        element:<Admin/>
-    },
-    {
-        path:"announcement",
-        element:<Announcement/>
-    },
-    {
-        path:"department",
-        element:<Department/>
-    },
-    {
-        path:"designation",
-        element:<Designation/>
-    },
-    {
-        path:"myplan",
-        element:<Myplan/>
-    },
-    {
-        path:"policies",
-        element:<Policies/>
-    },
-    {
-        path:"statutory",
-        element:<Statutory/>
-    }
-]
-   
+    element: <CompanyProfile />,
+    children: [
+      {
+        path: "/company-profile",
+        element: <Overview />,
+      },
+      {
+        path: "overview",
+        element: <Overview />,
+      },
+      {
+        path: "address",
+        element: <Address />,
+      },
+      {
+        path: "admin",
+        element: <Admin />,
+      },
+      {
+        path: "announcement",
+        element: <Announcement />,
+      },
+      {
+        path: "department",
+        element: <Department />,
+      },
+      {
+        path: "designation",
+        element: <Designation />,
+      },
+      {
+        path: "myplan",
+        element: <Myplan />,
+      },
+      {
+        path: "policies",
+        element: <Policies />,
+      },
+      {
+        path: "statutory",
+        element: <Statutory />,
+      },
+    ],
   },
   {
     path: "/my-profile",
-    element: <MyProfile/>,
-    children:[{
-        path:"/my-profile",
-        element:<Work/>
-    },
-    {
-        path:"personal",
-        element:<Personal/>
-    },
-    {
-        path:"work",
-        element:<Work/>
-    },
-    {
-        path:"team",
-        element:<Team/>
-    },
-    {
-        path:"education",
-        element:<Education/>
-    },
-    {
-        path:"family",
-        element:<Family/>
-    },
-    {
-        path:"document",
-        element:<Department/>
-    },
-    {
-        path:"file-manager",
-        element:<FileManager/>
-    }
-]
-   
+    element: <MyProfile />,
+    children: [
+      {
+        path: "/my-profile",
+        element: <Work />,
+      },
+      {
+        path: "personal",
+        element: <Personal />,
+      },
+      {
+        path: "work",
+        element: <Work />,
+      },
+      {
+        path: "team",
+        element: <Team />,
+      },
+      {
+        path: "education",
+        element: <Education />,
+      },
+      {
+        path: "family",
+        element: <Family />,
+      },
+      {
+        path: "document",
+        element: <Department />,
+      },
+      {
+        path: "file-manager",
+        element: <FileManager />,
+      },
+    ],
   },
 
   {
     path: "/attendence",
-    element: <Attendence/>,
-    children:[{
-        path:"/attendence",
-        element:<Logs/>
-    },
-    {
-        path:"logs",
-        element:<Logs/>
-    },
-    {
-        path:"automation-logs",
-        element:<AutomationLogs/>
-    },
-    {
-        path:"rules",
-        element:<Rules/>
-    },
-    {
-        path:"approvals",
-        element:<Approvals/>
-    },
-    {
-        path:"analytics",
-        element:<Analytics/>
-    },
-    {
-        path:"settings",
-        element:<Settings/>
-    }
-]
-   
+    element: <Attendence />,
+    children: [
+      {
+        path: "/attendence",
+        element: <Logs />,
+      },
+      {
+        path: "logs",
+        element: <Logs />,
+      },
+      {
+        path: "automation-logs",
+        element: <AutomationLogs />,
+      },
+      {
+        path: "rules",
+        element: <Rules />,
+      },
+      {
+        path: "approvals",
+        element: <Approvals />,
+      },
+      {
+        path: "analytics",
+        element: <Analytics />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+    ],
   },
- 
- 
-  
+
   {
     path: "/leave",
-    element: <Leave/>,
-    children:[{
-        path:"/leave",
-        element:<LeaveLogs/>
-    }, 
+    element: <Leave />,
+    children: [
+      {
+        path: "/leave",
+        element: <LeaveLogs />,
+      },
 
-    {
-      path:"rules",
-      element:<Rules/>
-    },
+      {
+        path: "rules",
+        element: <Rules />,
+      },
 
-    {
-        path:"balance",
-        element:<Balance/>
-    },
-    {
-        path:"settings",
-        element:<Settings/>
-    }
-]
-   
+      {
+        path: "balance",
+        element: <Balance />,
+      },
+      {
+        path: "settings",
+        element: <Settings />,
+      },
+    ],
   },
 
   {
     path: "/payroll",
-    element: <Payroll/>,
-    children:[{
-        path:"/payroll",
-        element:<RunPayroll/>
-    }, 
+    element: <Payroll />,
+    children: [
+      {
+        path: "/payroll",
+        element: <RunPayroll />,
+      },
 
-    {
-      path:"setup-payroll",
-      element:<SetupPayroll/>
-    },
+      {
+        path: "setup-payroll",
+        element: <SetupPayroll />,
+      },
 
-    {
-        path:"declaration",
-        element:<Declaration/>
-    },
-    {
-        path:"advance-settings",
-        element:<AdvanceSettings/>
-    },
-    {
-      path:"audit-history",
-      element:<AuditHistory/>
-  }
-]
-   
+      {
+        path: "declaration",
+        element: <Declaration />,
+      },
+      {
+        path: "advance-settings",
+        element: <AdvanceSettings />,
+      },
+      {
+        path: "audit-history",
+        element: <AuditHistory />,
+      },
+    ],
   },
-
-
 
   {
     path: "/",
@@ -225,19 +220,19 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login/>
+    element: <Login />,
   },
   {
     path: "/sign-up",
-    element: <Signup1/>
+    element: <Signup1 />,
   },
   {
-    path:"/forgetPassword",
-    element: <ForgotPassword/>
+    path: "/forgetPassword",
+    element: <ForgotPassword />,
   },
   {
-    path:"/sidebar",
-    element:<Sidebar/>
-  }
+    path: "/sidebar",
+    element: <Sidebar />,
+  },
 ]);
 export default router;

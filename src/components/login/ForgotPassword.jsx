@@ -14,7 +14,7 @@ const ForgotPassword = () => {
     try {
       const response = await axios.post(
         "http://localhost:3500/api/v1/auth/changepassword",
-        
+
         { email }
       );
       console.log("Password reset email sent successfully:", response.data);
@@ -28,9 +28,9 @@ const ForgotPassword = () => {
     setEmail(e.target.value);
   };
 
-  const handleLoginPage =()=>{
-    navigate("/login")
-  }
+  const handleLoginPage = () => {
+    navigate("/login");
+  };
   return (
     <div className="flex flex-row items-center justify-center w-full h-screen gap-0 bg-slate-200">
       <div className="w-1/3 h-3/4 border flex mt-3 flex-row items-center justify-end hidden md:block">
@@ -54,7 +54,10 @@ const ForgotPassword = () => {
                 </div>
                 <div className="text-xs">
                   Remembered your password?{" "}
-                  <span onClick={handleLoginPage} className=" text-blue-500 text-lg cursor-pointer">
+                  <span
+                    onClick={handleLoginPage}
+                    className=" text-blue-500 text-lg cursor-pointer"
+                  >
                     Login
                   </span>{" "}
                 </div>

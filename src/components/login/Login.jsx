@@ -52,7 +52,7 @@
 //         </div>
 //       </div>
 //       <div className="w-1/3 h-5/6">
-      
+
 //         <div className="mt-3 shadow-2xl rounded-md">
 //           <form onSubmit={handleLogin}>
 //             <div className="flex flex-col items-center justify-evenly bg-white text-black w-auto gap-3 ">
@@ -126,7 +126,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
-    password: ""
+    password: "",
   });
   const navigate = useNavigate();
   const handleLogin = async (e) => {
@@ -146,7 +146,7 @@ const Login = () => {
   const handleInputChange = (e) => {
     setLoginFormData({
       ...loginFormData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -169,7 +169,6 @@ const Login = () => {
         </div>
       </div>
       <div className="w-4/5  md:w-1/3">
-      
         <div className="mt-3 shadow-2xl rounded-md ">
           <form onSubmit={handleLogin}>
             <div className="flex flex-col items-center justify-evenly bg-white text-black w-full gap-3 p-5 pb-11">

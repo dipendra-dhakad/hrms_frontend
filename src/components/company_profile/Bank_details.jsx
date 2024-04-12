@@ -1,7 +1,7 @@
 // import React, { useState } from 'react'
 // import { AiFillPlusCircle } from "react-icons/ai";
 // export const Bank_details = () => {
-    
+
 //     cosnt [showform  , setShowForm] = useState(false);
 
 // const handleForm =()=>{
@@ -49,7 +49,7 @@
 //     <div onClick={handleForm} class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2  hover:scale-105 border border-gray-300">
 //     <RxCross2 class="text-black text-sm font-semibold" />
 //     <button  class="text-black text-sm font-semibold">CANCEL</button>
-// </div> 
+// </div>
 // <div class="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
 //     <AiOutlineCheck class="text-xl" />
 //     <button type="submit" class="text-white text-sm font-semibold pl-3 pr-3">SAVE</button>
@@ -58,11 +58,10 @@
 //               </div>
 //               <div></div>
 //                     </form>
-                 
+
 //                 </div>
 //              )
 //         }
-
 
 //        </div>
 //     </div>
@@ -136,23 +135,23 @@
 //       )}
 //     </div>
 //   </div></div>
-   
+
 //   );
 // };
 
-import React, { useState } from 'react';
-import { AiFillPlusCircle, AiOutlineCheck } from 'react-icons/ai';
+import React, { useState } from "react";
+import { AiFillPlusCircle, AiOutlineCheck } from "react-icons/ai";
 
 export const Bank_details = () => {
   const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
-    accountTitle: '',
-    bankName: '',
-    city: '',
-    branchName: '',
-    ifscCode: '',
-    accountType: '',
-    accountNumber:''
+    accountTitle: "",
+    bankName: "",
+    city: "",
+    branchName: "",
+    ifscCode: "",
+    accountType: "",
+    accountNumber: "",
   });
 
   const handleInputChange = (e) => {
@@ -166,16 +165,16 @@ export const Bank_details = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you can perform your logic to submit formData to your backend
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     // Reset form fields
     setFormData({
-      accountTitle: '',
-      bankName: '',
-      city: '',
-      branchName: '',
-      ifscCode: '',
-      accountType: '',
-      accountNumber:''
+      accountTitle: "",
+      bankName: "",
+      city: "",
+      branchName: "",
+      ifscCode: "",
+      accountType: "",
+      accountNumber: "",
     });
     // Hide the form after submission
     setShowForm(false);
@@ -187,7 +186,7 @@ export const Bank_details = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="p-3 flex flex-col w-[45%] bg-slate-50"  >
+      <div className="p-3 flex flex-col w-[45%] bg-slate-50">
         <div className="text-xl font-bold mb-4">Bank Account</div>
         <div>
           <button
@@ -245,7 +244,7 @@ export const Bank_details = () => {
                     value={formData.ifscCode}
                     onChange={handleInputChange}
                   />
-                   
+
                   <select
                     name="accountType"
                     className="border-b border-gray-700 p-2 w-1/3 mr-2"
@@ -266,22 +265,19 @@ export const Bank_details = () => {
                   />
                 </div>
                 <div className="flex justify-end gap-2 pr-3">
-                    <button
-                      onClick={handleForm}
-                      className="text-black text-sm font-semibold border border-gray-300 rounded-md p-2 hover:bg-gray-100"
-                    >
-                      Cancel
+                  <button
+                    onClick={handleForm}
+                    className="text-black text-sm font-semibold border border-gray-300 rounded-md p-2 hover:bg-gray-100"
+                  >
+                    Cancel
+                  </button>
+                  <div className="bg-blue-600 flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-700 hover:shadow-md">
+                    <AiOutlineCheck className="text-xl mr-1" />
+                    <button type="submit" className="text-sm font-semibold">
+                      Save
                     </button>
-                    <div className="bg-blue-600 flex items-center justify-center rounded-md p-2 text-white hover:bg-blue-700 hover:shadow-md">
-                      <AiOutlineCheck className="text-xl mr-1" />
-                      <button
-                        type="submit"
-                        className="text-sm font-semibold"
-                      >
-                        Save
-                      </button>
-                    </div>
                   </div>
+                </div>
               </form>
             </div>
           )}

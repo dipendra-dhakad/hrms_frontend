@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const AdvanceSettings = () => {
-  return (
-    <div>AdvanceSettings</div>
-  )
-}
+  return <div>AdvanceSettings</div>;
+};
