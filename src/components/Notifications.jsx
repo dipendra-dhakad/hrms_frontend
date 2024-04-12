@@ -23,7 +23,7 @@
 //               >
 //               <div className="text-xl text-blue-500 ml-2 flex gap-4 items-center"> <MdKeyboardArrowLeft />
 //                 <h1 className="text-black text-sm font-semibold">
-//                   {item} 
+//                   {item}
 //                 </h1>
 //                 </div>
 //                 <div className="text-xl text-blue-500  "><MdKeyboardArrowRight /></div>
@@ -47,7 +47,9 @@ const notificationArray = [
 export const Notifications = () => {
   return (
     <div className="pt-1 mt-1 p-1 w-[50vw]">
-      <h1 className="text-md font-bold text-slate-900">Tasks And Notifications</h1>
+      <h1 className="text-md font-bold text-slate-900">
+        Tasks And Notifications
+      </h1>
       <div className="w-full border-blue-500 border-l-4 mt-2 shadow-md">
         <div className="flex flex-col gap-0">
           {notificationArray.map((item, index) => {
@@ -71,4 +73,3 @@ export const Notifications = () => {
     </div>
   );
 };
-

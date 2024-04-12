@@ -1,13 +1,10 @@
-import { MdDeleteOutline } from "react-icons/md"; 
-import { TbEdit } from "react-icons/tb"; 
-// import { RxCross1 } from "react-icons/rx"; 
-// import { BiMessageError } from "react-icons/bi"; 
+// import { RxCross1 } from "react-icons/rx";
+// import { BiMessageError } from "react-icons/bi";
 // import React from 'react'
 
 // export const Announcement = () => {
 //   return (
 //     <div className="flex items-center  justify-center">
-
 
 //   <div className="flex flex-col  w-[40%] bg-slate-100 p-3 m-2">
 //    <div className='uppercase  '>Announcements</div>
@@ -18,8 +15,7 @@ import { TbEdit } from "react-icons/tb";
 //     <div className=" flex flex-col ">
 //       Message
 //       <textarea
-      
-       
+
 //         rows={4} // Specify the number of rows for the textarea
 //         cols={50} // Specify the number of columns for the textarea
 //         placeholder="Enter Announcement"
@@ -38,14 +34,17 @@ import { TbEdit } from "react-icons/tb";
 //     </div>
 //   )
 // }
-import React, { useState } from 'react';
-import { BiMessageError } from 'react-icons/bi';
-import { RxCross1 } from 'react-icons/rx';
+
+import { MdDeleteOutline } from "react-icons/md";
+import { TbEdit } from "react-icons/tb";
+import React, { useState } from "react";
+import { BiMessageError } from "react-icons/bi";
+import { RxCross1 } from "react-icons/rx";
 
 export const Announcement = () => {
-  const [announcement, setAnnouncement] = useState('');
+  const [announcement, setAnnouncement] = useState("");
   const [charCount, setCharCount] = useState(0);
-  const [liveAnnouncement, setLiveAnnouncement] = useState('');
+  const [liveAnnouncement, setLiveAnnouncement] = useState("");
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -60,7 +59,7 @@ export const Announcement = () => {
     // Add logic to handle form submission (e.g., posting announcement)
     setLiveAnnouncement(announcement);
     // Reset form state
-    setAnnouncement('');
+    setAnnouncement("");
     setCharCount(0);
     setIsEditing(false);
   };
@@ -78,7 +77,7 @@ export const Announcement = () => {
   };
 
   const handleDelete = () => {
-    setLiveAnnouncement('');
+    setLiveAnnouncement("");
   };
 
   return (
@@ -88,12 +87,19 @@ export const Announcement = () => {
         <div className="flex items-center mb-4" onClick={handleToggleForm}>
           <BiMessageError className="text-blue-500 mr-2 cursor-pointer" />
           <span className="font-bold cursor-pointer">Post an Announcement</span>
-          {showForm && <RxCross1 className="ml-auto cursor-pointer" onClick={handleToggleForm} />}
+          {showForm && (
+            <RxCross1
+              className="ml-auto cursor-pointer"
+              onClick={handleToggleForm}
+            />
+          )}
         </div>
         {showForm && (
           <form onSubmit={handleFormSubmit}>
             <div className="mb-4">
-              <label htmlFor="announcementTextarea" className="block font-bold">Message</label>
+              <label htmlFor="announcementTextarea" className="block font-bold">
+                Message
+              </label>
               <textarea
                 id="announcementTextarea"
                 value={announcement}
@@ -102,20 +108,32 @@ export const Announcement = () => {
                 placeholder="Enter Announcement"
                 className="w-full p-2 border rounded-md"
               />
-              <div className="text-xs text-gray-500">{charCount}/100 Characters</div>
+              <div className="text-xs text-gray-500">
+                {charCount}/100 Characters
+              </div>
             </div>
             <div className="flex justify-end">
               {isEditing ? (
                 <>
-                  <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded mr-2">
+                  <button
+                    type="submit"
+                    className="bg-blue-500 text-white font-bold py-2 px-4 rounded mr-2"
+                  >
                     Update
                   </button>
-                  <button type="button" className="bg-gray-500 text-white font-bold py-2 px-4 rounded" onClick={handleToggleForm}>
+                  <button
+                    type="button"
+                    className="bg-gray-500 text-white font-bold py-2 px-4 rounded"
+                    onClick={handleToggleForm}
+                  >
                     Cancel
                   </button>
                 </>
               ) : (
-                <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white font-bold py-2 px-4 rounded"
+                >
                   Post
                 </button>
               )}
@@ -127,15 +145,23 @@ export const Announcement = () => {
           {liveAnnouncement ? (
             <div className="mt-2 text-gray-700">{liveAnnouncement}</div>
           ) : (
-            <div className="mt-2 text-gray-700">No live announcement right now</div>
+            <div className="mt-2 text-gray-700">
+              No live announcement right now
+            </div>
           )}
           {liveAnnouncement && (
             <div className="mt-2 flex justify-end">
-              <button className=" text-black font-bold py-2 px-4 rounded mr-2" onClick={handleEdit}>
-               <TbEdit />
+              <button
+                className=" text-black font-bold py-2 px-4 rounded mr-2"
+                onClick={handleEdit}
+              >
+                <TbEdit />
               </button>
-              <button className=" text-black font-bold py-2 px-4 rounded" onClick={handleDelete}>
-          <MdDeleteOutline />
+              <button
+                className=" text-black font-bold py-2 px-4 rounded"
+                onClick={handleDelete}
+              >
+                <MdDeleteOutline />
               </button>
             </div>
           )}

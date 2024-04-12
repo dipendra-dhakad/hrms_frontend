@@ -2,12 +2,11 @@
 
 // // export const Personal_Profile = () => {
 // //   return (
-// //     <div className='w-[150px] h-[150px] rounded-full '>   
+// //     <div className='w-[150px] h-[150px] rounded-full '>
 // //         <form action=" "> <input type="file" placeholder='upload profile image' /></form>
 // //     </div>
 // //   )
 // // }
-
 
 // import React from 'react';
 // import { RiAddFill } from 'react-icons/ri';
@@ -44,20 +43,19 @@
 //     </div>
 //   );
 // };
-import React from 'react';
-import { RiAddFill } from 'react-icons/ri';
+import React from "react";
+import { RiAddFill } from "react-icons/ri";
 
 export const Personal_Profile = () => {
   const handleFileUpload = (e) => {
     // Handle file upload logic here
     const file = e.target.files[0];
-    console.log('Uploaded file:', file);
+    console.log("Uploaded file:", file);
   };
 
   return (
     <div className="flex items-center justify-center rounded-full bg-zinc-100">
       <div className=" w-[100px] h-[100px] rounded-full overflow-hidden flex items-center justify-center">
-      
         <label
           htmlFor="upload-profile-image"
           className="absolute  bg-white rounded-full p-2 cursor-pointer hover:bg-gray-200"

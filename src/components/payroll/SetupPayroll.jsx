@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const SetupPayroll = () => {
-  return (
-    <div>SetupPayroll</div>
-  )
-}
+  return <div>SetupPayroll</div>;
+};

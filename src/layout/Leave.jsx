@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Leave = () => {
-  return (
-    <div>Leave</div>
-  )
-}
+  return <div>Leave</div>;
+};

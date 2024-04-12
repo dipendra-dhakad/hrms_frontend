@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export const Logs = () => {
-  return (
-    <div>Logs</div>
-  )
-}
+  return <div>Logs</div>;
+};
