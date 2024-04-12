@@ -48,7 +48,7 @@ const Overview = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3500/api/v1/company/createOverview",
+        "http://localhost:3500/api/v1/company",
         companyFormData
       );
       console.log("Company Form Data submitted successfully:", response.data);
@@ -217,21 +217,13 @@ const Overview = () => {
           
          <div className="h-[100px] flex flex-row items-center justify-end bg-white">
           <div className=' bg-white flex flex-row w-[300px] '>
-          {/* <div className='bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border-spacing-1'>
-          <RxCross2 />
-              <button onClick={handleEdit} className=' text-black text-sm font-semibold'> CANCLE </button>
-               
-          </div> */}
+         
           <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">
     <RxCross2 class="text-black text-sm font-semibold" />
     <button onClick={handleEdit} class="text-black text-sm font-semibold">CANCEL</button>
 </div>
 
-          {/* <div  className='bg-blue-600 flex flex-row items-center justify-center rounded p-2  m-1 text-white hover:scale-105 hover:shadow-md shadow-black'>
-          <AiOutlineCheck />
-              <button type='submit' className=' text-white text-sm font-semibold pl-3 pr-3' >SAVE</button>
-             
-          </div> */}
+        
           <div class="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
     <AiOutlineCheck class="text-xl" />
     <button type="submit" onClick={handleEdit} class="text-white text-sm font-semibold pl-3 pr-3">SAVE</button>
@@ -293,66 +285,13 @@ const Overview = () => {
             </form></div>
 ) 
       }
-{/*       
-     */}
-      {/* <form action="">
-  <div className="flex flex-row justify-around">
-    <div className="p-1 bg-slate-50 pl-3 w-[50%]">
-      <div className="m-1 p-2">
-        <label htmlFor="companyName1" className="text-normal">
-          Registered Company Name
-        </label>
-        <h1 id="companyName1" className="text-lg font-semibold"> </h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyEmail1" className="text-normal">
-          Company Official Email
-        </label>
-        <h1 id="companyEmail1" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyWebsite1" className="text-normal">
-          Company Website
-        </label>
-        <h1 id="companyWebsite1" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="industryType" className="text-normal">
-          Industry Type
-        </label>
-        <h1 id="industryType" className="text-lg font-semibold"></h1>
-      </div>
-    </div>
-    <div className="p-1 bg-slate-50 pl-3 w-[50%]">
-      <div className="m-1 p-2 flex flex-col">
-        <label htmlFor="companyName2" className="text-normal">
-          Brand Name
-        </label>
-        <h1 id="companyName2" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyEmail2" className="text-normal">
-          Company Official Contact
-        </label>
-        <h1 id="companyEmail2" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyWebsite2" className="text-normal">
-          Domain Name
-        </label>
-        <h1 id="companyWebsite2" className="text-lg font-semibold"></h1>
-      </div>
-    </div>
-  </div>
 
- 
-      </form> */}
 
     </div>
     </div>
    
   </div>
-  <div className="container mx-auto w-[45%] py-2">
+  <div className="container mx-auto w-[44%] py-2">
     <div>
     <div className="flex flex-row items-center justify-between p-1 bg-slate-50 border-b-[0.7px] border-gray-500 mb-1">
       <h1 className="text-xl font-semibold mb-4 ml-1">Social Media</h1>
@@ -364,48 +303,7 @@ const Overview = () => {
    
 
     <div className="bg-slate-100 h-50 pt-1">
-      {/* <form action="">
-        <div className="pl-7 ">
-        <div className="flex flex-row justify-start items-center m-2 p-2 "> <div className="text-3xl"><ImLinkedin /> </div>
-          <input
-              
-              className=" border-b-[0.7px] border-gray-500 w-[60%]  ml-4 rounded-md"
-              type="url"
-              placeholder="Enter facebook URL"
-            />
- </div>
-          <div className="flex flex-row justify-start items-center m-2 p-2 "> <div className="text-3xl"><FaFacebook /> </div>
-          <input
-              
-              className="rounded-b-none border-b-[0.7px] border-gray-500 w-[60%]  ml-4 rounded-md"
-              type="url"
-              placeholder="Enter facebook URL"
-            />
- </div>
- <div className="flex flex-row justify-start items-center m-2 p-2"> <div className="text-3xl"><FaXTwitter /> </div> 
-          <input
-              
-              className="rounded-b-none border-b-[0.7px] border-gray-500 w-[60%]  ml-4 rounded-md"
-              type="url"
-              placeholder="Enter facebook URL"
-            />
- </div>
-        </div>
-        <div className="h-[100px] flex flex-row items-center justify-end bg-white">
-        <div className=' bg-white flex flex-row w-[200px] '>
-        <div className='bg-white flex flex-row items-center justify-center rounded p-2 m-1 hover:scale-105'>
-        <RxCross2 />
-            <button  className=' text-black text-sm font-semibold'> CANCLE </button>
-             
-        </div>
-        <div  className='bg-blue-600 flex flex-row items-center justify-center rounded p-2  m-1 text-white hover:scale-105'>
-        <AiOutlineCheck />
-            <button type='submit' className=' text-white text-sm font-semibold pl-3 pr-3' >SAVE</button>
-           
-        </div>
-    </div>
-        </div>
-      </form> */}
+     
       {
         !edit2 ? (<div className="flex flex-row items-center  justify-start gap-2 ml-5  h-[60px]">
         <Link to=""> <div className="text-3xl text-blue-700 rounded-full"><ImLinkedin /></div> </Link>

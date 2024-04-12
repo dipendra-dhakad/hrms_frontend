@@ -150,14 +150,14 @@ console.log(sidebar)
                     </div>
                 </div>
                 {companyProfileDropdownOpen && (
-                    <div className='w-full pl-11 text-sm '>
-                       <Link to="/company-profile/address"> <div className='text-sm hover:text-blue-500 '>Address</div></Link>
-                       <Link to="/company-profile/department"> <div className='text-sm hover:text-blue-500 ' >Department</div></Link>
-                       <Link to="/company-profile/designation"> <div className='text-sm hover:text-blue-500 '>Designations</div></Link>
-                        <Link to='/company-profile/annoucements'><div className='text-sm hover:text-blue-500 '>Announcements</div></Link>
-                      <Link to="/company-profile/policies">  <div className='text-sm hover:text-blue-500 '>Policies & Statutory Info</div></Link>
-                       <Link to="/company-profile/admin"> <div className='text-sm hover:text-blue-500 '>Admins</div></Link>
-                        <Link to='myplan'><div>My Plan</div></Link>
+                    <div className='w-full pl-11 text-sm bg-white'>
+                       <Link to="/company-profile/address"> <div className='text-sm hover:text-blue-500  p-1'>Address</div></Link>
+                       <Link to="/company-profile/department"> <div className='text-sm hover:text-blue-500  p-1' >Department</div></Link>
+                       <Link to="/company-profile/designation"> <div className='text-sm hover:text-blue-500  p-1'>Designations</div></Link>
+                        <Link to='/company-profile/annoucements'><div className='text-sm hover:text-blue-500  p-1'>Announcements</div></Link>
+                      <Link to="/company-profile/policies">  <div className='text-sm hover:text-blue-500  p-1'>Policies & Statutory Info</div></Link>
+                       <Link to="/company-profile/admin"> <div className='text-sm hover:text-blue-500  p-1'>Admins</div></Link>
+                   
                     </div>
                 )}
                 <div className="flex flex-row  w-full gap-7 p-1 pl-2 ">
@@ -169,13 +169,13 @@ console.log(sidebar)
                     </div>
                 </div>
                 {myProfileDropdownOpen && (
-                    <div className='w-full pl-11 text-sm'>
-                        <Link to="/my-profile/work"> <div className='text-sm hover:text-blue-500 '>Work</div></Link>
-                       <Link  to="/my-profile/team"> <div className='text-sm hover:text-blue-500 '>Team</div></Link>
-                       <Link  to="/my-profile/education"> <div className='text-sm hover:text-blue-500 '>Education</div></Link>
-                        <Link  to="/my-profile/family">  <div className='text-sm hover:text-blue-500 '>Family</div></Link>
-                        <Link to="/my-profile/documents">  <div className='text-sm hover:text-blue-500 '>Documents</div></Link>
-                        <Link to="/my-profile/file-manager">   <div className='text-sm hover:text-blue-500 '>File Manager</div></Link>
+                    <div className='w-full pl-11  text-sm bg-white'>
+                        <Link to="/my-profile/work"> <div className='text-sm hover:text-blue-500 p-1'>Work</div></Link>
+                       <Link  to="/my-profile/team"> <div className='text-sm hover:text-blue-500  p-1 '>Team</div></Link>
+                       <Link  to="/my-profile/education"> <div className='text-sm hover:text-blue-500  p-1'>Education</div></Link>
+                        <Link  to="/my-profile/family">  <div className='text-sm hover:text-blue-500  p-1 '>Family</div></Link>
+                        <Link to="/my-profile/documents">  <div className='text-sm hover:text-blue-500  p-1'>Documents</div></Link>
+                        <Link to="/my-profile/file-manager">   <div className='text-sm hover:text-blue-500  p-1'>File Manager</div></Link>
                     </div>
                 )}
                 <div className="flex flex-row  w-full gap-7 p-1 pl-2 ">
@@ -187,13 +187,13 @@ console.log(sidebar)
                     </div>
                 </div>
                 {attendanceDropdownOpen && (
-                    <div className='w-full pl-11 text-sm'>
-                       <Link to=" /attendence/logs"> <div>Logs</div></Link>
-                        <div to="/attendence/automation-logs">Automation Logs</div>
-                        <div to="/attendence/rules">Rules</div>
-                        <div to="/attendence/approvals">Approvals</div>
-                        <div to="/attendence/analytics">Analytics</div>
-                        <div>Settings</div>
+                    <div className='w-full pl-11 text-sm bg-white'>
+                       <Link to=" /attendence/logs"> <div className='p-1'>Logs</div></Link>
+                       <Link to="/attendence/automation-logs"><div className='p-1'>Automation Logs</div></Link> 
+                       <Link to="/attendence/rules"><div className='p-1'>Rules</div></Link> 
+                       <Link to="/attendence/approvals"><div >Approvals</div></Link> 
+                       <Link  to="/attendence/analytics"> <div className='p-1'>Analytics</div></Link>
+                      <Link to="/attendence/settings">  <div className='p-1'>Settings</div>  </Link>
                     </div>
                 )}
                 <div className="flex flex-row  w-full gap-8 p-1 pl-2 ">
@@ -205,10 +205,10 @@ console.log(sidebar)
                     </div>
                 </div>
                 {leaveDropdownOpen && (
-                    <div className='w-full pl-11 text-sm'>
-                        <Link to="/leave/logs"><div>Logs</div></Link>
-                        <div to="/leave/rules">Rules</div>
-                        <div to="/leave/balance">Balance</div>
+                    <div className='w-full pl-11 text-sm bg-white'>
+                        <Link to="/leave/logs"><div className='p-1'>Logs</div></Link>
+                        <Link to="/leave/rules" ><div  className='p-1'>Rules</div></Link> 
+                        <Link to="/leave/balance"><div   className='p-1'>Balance</div></Link>  
                     </div>
                 )}
                 <div className="flex flex-row  w-full gap-8 p-1 pl-2 ">
@@ -220,12 +220,12 @@ console.log(sidebar)
                     </div>
                 </div>
                 {payrollDropdownOpen && (
-                    <div className='w-full pl-11 text-sm'>
-                    <Link to="/payroll/run-payroll">    <div>Run Payroll</div></Link>
-                   <Link to="/payroll/setup-payroll">      <div>Setup Payroll</div></Link>
-                    <Link to="/payroll/declaration" >    <div>Declaration</div></Link>
-                     <Link  to="/payroll/advance-settings">   <div>Advance Settings</div></Link>
-                      <Link to="/payroll/audit-history">  <div>Audit History</div></Link>
+                    <div className='w-full pl-11 text-sm bg-white'>
+                    <Link to="/payroll/run-payroll">    <div className='p-1'>Run Payroll</div></Link>
+                   <Link to="/payroll/setup-payroll">      <div className='p-1'>Setup Payroll</div></Link>
+                    <Link to="/payroll/declaration" >    <div className='p-1'>Declaration</div></Link>
+                     <Link  to="/payroll/advance-settings">   <div className='p-1'>Advance Settings</div></Link>
+                      <Link to="/payroll/audit-history">  <div className='p-1'>Audit History</div></Link>
                     </div>
                 )}
                 <div className="flex flex-row  w-full gap-10 p-1 pl-2 ">

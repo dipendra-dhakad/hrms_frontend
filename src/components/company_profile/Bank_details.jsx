@@ -187,7 +187,7 @@ export const Bank_details = () => {
 
   return (
     <div className="flex items-center justify-center">
-      <div className="p-3 flex flex-col w-[45%] bg-slate-50"  >
+      <div className="p-3 flex flex-col w-[44%] bg-slate-50"  >
         <div className="text-xl font-bold mb-4">Bank Account</div>
         <div>
           <button

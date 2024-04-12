@@ -277,7 +277,7 @@ export const Admin = () => {
 
   return (
     <div className='flex flex-col items-center justify-center'>
-      <div className='w-[40%] flex flex-col'>
+      <div className='w-[44%] flex flex-col'>
         <div className="bg-gray-200 rounded-t-lg p-4">
           <h1 className="text-xl font-bold uppercase">Company Admin</h1>
         </div>

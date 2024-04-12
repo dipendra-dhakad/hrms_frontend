@@ -130,7 +130,7 @@ export const Policies = () => {
 
   return (
     <div className='flex items-center justify-center'>
-      <div className='w-[40%]'>
+      <div className='w-[44%]'>
         <div className="bg-gray-200 rounded-t-lg p-4">
           <h1 className="text-xl font-bold uppercase">Company Policies</h1>
         </div>

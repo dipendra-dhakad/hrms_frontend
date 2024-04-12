@@ -39,6 +39,7 @@ import { AdvanceSettings } from "../components/payroll/AdvanceSettings";
 import { AuditHistory } from "../components/payroll/AuditHistory";
 import Statutory_temprary from "../components/company_profile/Statutory_temprary";
 import { Personal } from "../components/my_profile/Personal";
+import { Document } from "../components/my_profile/Document";
 const router = createBrowserRouter([
 
   {
@@ -115,8 +116,8 @@ const router = createBrowserRouter([
         element:<Family/>
     },
     {
-        path:"document",
-        element:<Department/>
+        path:"documents",
+        element:<Document/>
     },
     {
         path:"file-manager",

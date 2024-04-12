@@ -71,7 +71,7 @@ export const Address = () => {
   return (
     <div>
       <div className="w-[100vw] flex  justify-center mt-3 pt-1 bg-slate-100   ">
-        <div className="flex flex-col   w-[40%] h-auto justify-evenly  rounded-sm ">
+        <div className="flex flex-col   w-[44%] h-auto justify-evenly  rounded-sm ">
           <div className="  flex flex-col h-auto mt-2 bg-white shadow-md">
             <div className="flex flex-row justify-between  items-center border-b-[0.3px] p-2 border-gray-300">
               <h1 className="pl-3 text-medium font-medium uppercase">
