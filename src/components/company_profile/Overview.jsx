@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdOutlineEdit } from "react-icons/md";
-
 import { ImLinkedin } from "react-icons/im";
 import { FaFacebook, FaTwitter } from "react-icons/fa";
 import { AiFillYoutube } from "react-icons/ai";
@@ -8,6 +7,7 @@ import { RxCross2 } from "react-icons/rx";
 import { AiOutlineCheck } from "react-icons/ai";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
 
 const Overview = () => {
   const [edit, setEdit] = useState(false);
@@ -21,13 +21,35 @@ const Overview = () => {
     domainName: "",
     industryType: "",
   });
-
   const [socialMediaFormData, setSocialMediaFormData] = useState({
     linkedinUrl: "",
     twitterUrl: "",
     facebookUrl: "",
     youtubeUrl: "",
   });
+  const [companyId, setCompanyId] = useState("");
+  const [companyData, setCompanyData] = useState();
+
+  useEffect(() => {
+    const fetchCompanyData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:3500/api/v1/company/company"
+        );
+        const companyData = response.data.response;
+        console.log("companyData:", companyData);
+        if (companyData.length > 0) {
+          const firstCompany = companyData[0];
+          setCompanyId(firstCompany._id);
+          setCompanyData(firstCompany);
+        }
+      } catch (error) {
+        console.error("Error fetching company data:", error);
+      }
+    };
+
+    fetchCompanyData();
+  }, []);
 
   const handleCompanyChange = (e) => {
     setCompanyFormData({
@@ -47,10 +69,12 @@ const Overview = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3500/api/v1/company",
+        "http://localhost:3500/api/v1/company/company",
         companyFormData
       );
+      toast.success("Company Created Successfully!");
       console.log("Company Form Data submitted successfully:", response.data);
+      location.reload();
     } catch (error) {
       console.error("Error submitting company form data:", error);
     }
@@ -59,14 +83,16 @@ const Overview = () => {
   const handleSocialMediaSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
-        "http://localhost:3500/api/v1/company/createOverview",
+      const response = await axios.patch(
+        `http://localhost:3500/api/v1/company/company/${companyId}`,
         socialMediaFormData
       );
+      toast.success("Social Media Update Successfully!");
       console.log(
         "Social Media Form Data submitted successfully:",
         response.data
       );
+      setSocialMediaFormData(response.data);
     } catch (error) {
       console.error("Error submitting social media form data:", error);
     }
@@ -83,6 +109,7 @@ const Overview = () => {
   return (
     <div>
       <div className="bg-slate-200 h-[100vh]">
+        <Toaster />
         <div className="container mx-auto w-[45%] py-2">
           <div>
             <div className="flex flex-row items-center justify-between p-1 bg-slate-50 border-b-[0.7px] border-gray-500 mb-1">
@@ -236,11 +263,6 @@ const Overview = () => {
 
                     <div className="h-[100px] flex flex-row items-center justify-end bg-white">
                       <div className=" bg-white flex flex-row w-[300px] ">
-                        {/* <div className='bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border-spacing-1'>
-          <RxCross2 />
-              <button onClick={handleEdit} className=' text-black text-sm font-semibold'> CANCLE </button>
-               
-          </div> */}
                         <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">
                           <RxCross2 class="text-black text-sm font-semibold" />
                           <button
@@ -250,17 +272,11 @@ const Overview = () => {
                             CANCEL
                           </button>
                         </div>
-
-                        {/* <div  className='bg-blue-600 flex flex-row items-center justify-center rounded p-2  m-1 text-white hover:scale-105 hover:shadow-md shadow-black'>
-          <AiOutlineCheck />
-              <button type='submit' className=' text-white text-sm font-semibold pl-3 pr-3' >SAVE</button>
-             
-          </div> */}
                         <div class="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
                           <AiOutlineCheck class="text-xl" />
                           <button
                             type="submit"
-                            onClick={handleEdit}
+                            onClick={handleCompanySubmit}
                             class="text-white text-sm font-semibold pl-3 pr-3"
                           >
                             SAVE
@@ -268,7 +284,7 @@ const Overview = () => {
                         </div>
                       </div>
                     </div>
-                  </form>{" "}
+                  </form>
                 </div>
               ) : (
                 <div>
@@ -283,7 +299,9 @@ const Overview = () => {
                             id="companyName1"
                             className="text-lg font-semibold"
                           >
-                            {" "}
+                            {companyData && companyData.companyName
+                              ? companyData.companyName
+                              : ""}
                           </h1>
                         </div>
                         <div className="m-1 p-2">
@@ -296,7 +314,11 @@ const Overview = () => {
                           <h1
                             id="companyEmail1"
                             className="text-lg font-semibold"
-                          ></h1>
+                          >
+                            {companyData && companyData.companyEmail
+                              ? companyData.companyEmail
+                              : ""}
+                          </h1>
                         </div>
                         <div className="m-1 p-2">
                           <label
@@ -308,7 +330,11 @@ const Overview = () => {
                           <h1
                             id="companyWebsite1"
                             className="text-lg font-semibold"
-                          ></h1>
+                          >
+                            {companyData && companyData.website
+                              ? companyData.website
+                              : ""}
+                          </h1>
                         </div>
                         <div className="m-1 p-2">
                           <label htmlFor="industryType" className="text-normal">
@@ -317,7 +343,12 @@ const Overview = () => {
                           <h1
                             id="industryType"
                             className="text-lg font-semibold"
-                          ></h1>
+                          >
+                       
+                            {companyData && companyData.industryType
+                              ? companyData.industryType
+                              : ""}
+                          </h1>
                         </div>
                       </div>
                       <div className="p-1 bg-slate-50 pl-3 w-[50%]">
@@ -328,7 +359,12 @@ const Overview = () => {
                           <h1
                             id="companyName2"
                             className="text-lg font-semibold"
-                          ></h1>
+                          >
+                           
+                            {companyData && companyData.brandName
+                              ? companyData.brandName
+                              : ""}
+                          </h1>
                         </div>
                         <div className="m-1 p-2">
                           <label
@@ -340,7 +376,12 @@ const Overview = () => {
                           <h1
                             id="companyEmail2"
                             className="text-lg font-semibold"
-                          ></h1>
+                          >
+                            {/* {companyData.companyContact} */}
+                            {companyData && companyData.companyContact
+                              ? companyData.companyContact
+                              : ""}
+                          </h1>
                         </div>
                         <div className="m-1 p-2">
                           <label
@@ -352,67 +393,18 @@ const Overview = () => {
                           <h1
                             id="companyWebsite2"
                             className="text-lg font-semibold"
-                          ></h1>
+                          >
+                            {/* {companyData.domainName} */}
+                            {companyData && companyData.domainName
+                              ? companyData.domainName
+                              : ""}
+                          </h1>
                         </div>
                       </div>
                     </div>
                   </form>
                 </div>
               )}
-              {/*
-               */}
-              {/* <form action="">
-  <div className="flex flex-row justify-around">
-    <div className="p-1 bg-slate-50 pl-3 w-[50%]">
-      <div className="m-1 p-2">
-        <label htmlFor="companyName1" className="text-normal">
-          Registered Company Name
-        </label>
-        <h1 id="companyName1" className="text-lg font-semibold"> </h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyEmail1" className="text-normal">
-          Company Official Email
-        </label>
-        <h1 id="companyEmail1" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyWebsite1" className="text-normal">
-          Company Website
-        </label>
-        <h1 id="companyWebsite1" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="industryType" className="text-normal">
-          Industry Type
-        </label>
-        <h1 id="industryType" className="text-lg font-semibold"></h1>
-      </div>
-    </div>
-    <div className="p-1 bg-slate-50 pl-3 w-[50%]">
-      <div className="m-1 p-2 flex flex-col">
-        <label htmlFor="companyName2" className="text-normal">
-          Brand Name
-        </label>
-        <h1 id="companyName2" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyEmail2" className="text-normal">
-          Company Official Contact
-        </label>
-        <h1 id="companyEmail2" className="text-lg font-semibold"></h1>
-      </div>
-      <div className="m-1 p-2">
-        <label htmlFor="companyWebsite2" className="text-normal">
-          Domain Name
-        </label>
-        <h1 id="companyWebsite2" className="text-lg font-semibold"></h1>
-      </div>
-    </div>
-  </div>
-
- 
-      </form> */}
             </div>
           </div>
         </div>
@@ -429,48 +421,6 @@ const Overview = () => {
             </div>
 
             <div className="bg-slate-100 h-50 pt-1">
-              {/* <form action="">
-        <div className="pl-7 ">
-        <div className="flex flex-row justify-start items-center m-2 p-2 "> <div className="text-3xl"><ImLinkedin /> </div>
-          <input
-              
-              className=" border-b-[0.7px] border-gray-500 w-[60%]  ml-4 rounded-md"
-              type="url"
-              placeholder="Enter facebook URL"
-            />
- </div>
-          <div className="flex flex-row justify-start items-center m-2 p-2 "> <div className="text-3xl"><FaFacebook /> </div>
-          <input
-              
-              className="rounded-b-none border-b-[0.7px] border-gray-500 w-[60%]  ml-4 rounded-md"
-              type="url"
-              placeholder="Enter facebook URL"
-            />
- </div>
- <div className="flex flex-row justify-start items-center m-2 p-2"> <div className="text-3xl"><FaXTwitter /> </div> 
-          <input
-              
-              className="rounded-b-none border-b-[0.7px] border-gray-500 w-[60%]  ml-4 rounded-md"
-              type="url"
-              placeholder="Enter facebook URL"
-            />
- </div>
-        </div>
-        <div className="h-[100px] flex flex-row items-center justify-end bg-white">
-        <div className=' bg-white flex flex-row w-[200px] '>
-        <div className='bg-white flex flex-row items-center justify-center rounded p-2 m-1 hover:scale-105'>
-        <RxCross2 />
-            <button  className=' text-black text-sm font-semibold'> CANCLE </button>
-             
-        </div>
-        <div  className='bg-blue-600 flex flex-row items-center justify-center rounded p-2  m-1 text-white hover:scale-105'>
-        <AiOutlineCheck />
-            <button type='submit' className=' text-white text-sm font-semibold pl-3 pr-3' >SAVE</button>
-           
-        </div>
-    </div>
-        </div>
-      </form> */}
               {!edit2 ? (
                 <div className="flex flex-row items-center  justify-start gap-2 ml-5  h-[60px]">
                   <Link to="">
@@ -501,84 +451,86 @@ const Overview = () => {
                 </div>
               ) : (
                 <div>
-                  <form onSubmit={handleSocialMediaSubmit}>
-                    <div className="pl-7">
-                      <div className="flex flex-row justify-start items-center m-2">
-                        <div className="text-3xl text-blue-700 text-center">
-                          <ImLinkedin />
+                  <div>
+                    <form onSubmit={handleSocialMediaSubmit}>
+                      <div className="pl-7">
+                        <div className="flex flex-row justify-start items-center m-2">
+                          <div className="text-3xl text-blue-700 text-center">
+                            <ImLinkedin />
+                          </div>
+                          <input
+                            className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
+                            type="url"
+                            name="linkedinUrl"
+                            value={socialMediaFormData.linkedinUrl}
+                            onChange={handleSocialMediaChange}
+                            placeholder="Enter LinkedIn URL"
+                          />
                         </div>
-                        <input
-                          className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
-                          type="url"
-                          name="linkedinUrl"
-                          value={socialMediaFormData.linkedinUrl}
-                          onChange={handleSocialMediaChange}
-                          placeholder="Enter LinkedIn URL"
-                        />
-                      </div>
-                      <div className="flex flex-row justify-start items-center m-2">
-                        <div className="text-3xl text-blue-700  text-center">
-                          <FaFacebook />
+                        <div className="flex flex-row justify-start items-center m-2">
+                          <div className="text-3xl text-blue-700  text-center">
+                            <FaFacebook />
+                          </div>
+                          <input
+                            className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
+                            type="url"
+                            onChange={handleSocialMediaChange}
+                            value={socialMediaFormData.facebookUrl}
+                            name="facebookUrl"
+                            placeholder="Enter Facebook URL"
+                          />
                         </div>
-                        <input
-                          className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
-                          type="url"
-                          onChange={handleSocialMediaChange}
-                          value={socialMediaFormData.facebookUrl}
-                          name="facebookUrl"
-                          placeholder="Enter Facebook URL"
-                        />
-                      </div>
-                      <div className="flex flex-row justify-start items-center m-2">
-                        <div className="text-3xl text-black  text-center">
-                          <FaTwitter />
+                        <div className="flex flex-row justify-start items-center m-2">
+                          <div className="text-3xl text-black  text-center">
+                            <FaTwitter />
+                          </div>
+                          <input
+                            className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
+                            type="url"
+                            onChange={handleSocialMediaChange}
+                            value={socialMediaFormData.twitterUrl}
+                            placeholder="Enter Twitter URL"
+                            name="twitterUrl"
+                          />
                         </div>
-                        <input
-                          className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
-                          type="url"
-                          onChange={handleSocialMediaChange}
-                          value={socialMediaFormData.twitterUrl}
-                          placeholder="Enter Twitter URL"
-                          name="twitterUrl"
-                        />
-                      </div>
-                      <div className="flex flex-row justify-start items-center m-2">
-                        <div className="text-3xl text-blue-700  text-center">
-                          <AiFillYoutube />
-                        </div>
-                        <input
-                          className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
-                          type="url"
-                          onChange={handleSocialMediaChange}
-                          placeholder="Enter youtube URL"
-                          value={socialMediaFormData.youtubeUrl}
-                          name="youtubeUrl"
-                        />
-                      </div>
-                    </div>
-                    <div className="h-[100px] flex flex-row items-center justify-end bg-white">
-                      <div className="flex flex-row w-[300px]">
-                        <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">
-                          <RxCross2 class="text-black text-sm font-semibold" />
-                          <button
-                            onClick={handleEdit2}
-                            class="text-black text-sm font-semibold"
-                          >
-                            CANCEL
-                          </button>
-                        </div>
-                        <div class="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
-                          <AiOutlineCheck class="text-xl" />
-                          <button
-                            type="submit"
-                            class="text-white text-sm font-semibold pl-3 pr-3"
-                          >
-                            SAVE
-                          </button>
+                        <div className="flex flex-row justify-start items-center m-2">
+                          <div className="text-3xl text-blue-700  text-center">
+                            <AiFillYoutube />
+                          </div>
+                          <input
+                            className="border-b-[0.7px] border-gray-500 w-[80%] ml-4 rounded-md py-2 px-3 focus:outline-none"
+                            type="url"
+                            onChange={handleSocialMediaChange}
+                            placeholder="Enter youtube URL"
+                            value={socialMediaFormData.youtubeUrl}
+                            name="youtubeUrl"
+                          />
                         </div>
                       </div>
-                    </div>
-                  </form>
+                      <div className="h-[100px] flex flex-row items-center justify-end bg-white">
+                        <div className="flex flex-row w-[300px]">
+                          <div className="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">
+                            <RxCross2 className="text-black text-sm font-semibold" />
+                            <button
+                              onClick={handleEdit2}
+                              className="text-black text-sm font-semibold"
+                            >
+                              CANCEL
+                            </button>
+                          </div>
+                          <div className="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
+                            <AiOutlineCheck className="text-xl" />
+                            <button
+                              type="submit"
+                              className="text-white text-sm font-semibold pl-3 pr-3"
+                            >
+                              SAVE
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               )}
             </div>

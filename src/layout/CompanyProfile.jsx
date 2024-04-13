@@ -12,10 +12,9 @@ export const CompanyProfile = () => {
   return (
     <>
       <div className="relative">
-        <div className="absolute">{sidebar ? <Second_sidebar /> : null}</div>
+        <div className="absolute">{sidebar ? <Sidebar /> : null}</div>
         <Navbar />
         <SubNav />
-
         <Outlet />
       </div>
     </>
