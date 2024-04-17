@@ -70,8 +70,8 @@ export const Address = () => {
 
   return (
     <div>
-      <div className="w-[100vw] flex  justify-center mt-3 pt-1 bg-slate-100   ">
-        <div className="flex flex-col   w-[44%] h-auto justify-evenly  rounded-sm ">
+      <div className="w-[100vw] sm:w-full  flex  justify-center mt-3 pt-1 bg-slate-100   ">
+        <div className="flex flex-col w-full sm:w-full md:w-[44%] h-auto justify-evenly  rounded-sm ">
           <div className="  flex flex-col h-auto mt-2 bg-white shadow-md">
             <div className="flex flex-row justify-between  items-center border-b-[0.3px] p-2 border-gray-300">
               <h1 className="pl-3 text-medium font-medium uppercase">
@@ -154,7 +154,9 @@ export const Address = () => {
                         className="rounded-md border-b border-gray-300  py-1"
                       />
                     </div>
-                    <div className="flex flex-col w-[20%] md:w-1/2">
+                  
+                  </div>
+                  <div className="flex flex-col w-[20%] md:w-1/2 pl-3">
                       <label htmlFor="pincode" className="text-sm">
                         Pincode
                       </label>
@@ -164,7 +166,6 @@ export const Address = () => {
                         className="rounded-md border-b  border-gray-300 py-1"
                       />
                     </div>
-                  </div>
                   <div className="h-[100px] flex flex-row items-center justify-end bg-white">
                     <div className="flex flex-row w-[220px]">
                       <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">
@@ -273,7 +274,9 @@ export const Address = () => {
                         className="rounded-md border-b border-gray-300  py-1"
                       />
                     </div>
-                    <div className="flex flex-col w-[20%] md:w-1/2">
+                    
+                  </div>
+                  <div className="flex flex-col w-[20%] md:w-1/2 pl-3">
                       <label htmlFor="pincode" className="text-sm">
                         Pincode
                       </label>
@@ -283,7 +286,6 @@ export const Address = () => {
                         className="rounded-md border-b  border-gray-300 py-1"
                       />
                     </div>
-                  </div>
                   <div className="h-[100px] flex flex-row items-center justify-end bg-white">
                     <div className="flex flex-row w-[220px]">
                       <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">
@@ -398,7 +400,9 @@ export const Address = () => {
                         className="rounded-md border-b border-gray-300  py-1"
                       />
                     </div>
-                    <div className="flex flex-col w-[20%] md:w-1/2">
+                  
+                  </div>
+                  <div className="flex flex-col w-[20%] md:w-1/2 pl-3">
                       <label htmlFor="pincode" className="text-sm">
                         Pincode
                       </label>
@@ -408,7 +412,6 @@ export const Address = () => {
                         className="rounded-md border-b  border-gray-300 py-1"
                       />
                     </div>
-                  </div>
                   <div className="h-[100px] flex flex-row items-center justify-end bg-white">
                     <div className="flex flex-row w-[220px]">
                       <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2 m-1 hover:scale-105 border border-gray-300">

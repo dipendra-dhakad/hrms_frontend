@@ -122,21 +122,38 @@ import { IoMdContact } from "react-icons/io";
 import logo from "../signup/login_image1.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 const Login = () => {
   const [loginFormData, setLoginFormData] = useState({
     email: "",
     password: "",
   });
   const navigate = useNavigate();
+
+   
+  const handleToken = (token) => {
+    localStorage.setItem("token", token);
+  };
+
+
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(
+      const res = await axios.post(
         "http://localhost:3500/api/v1/auth/login",
         loginFormData
       );
-      console.log("Login successful:", response.data);
+      if (res.data.token) {
+        toast.success("successfully login");
+        const token = res.data.token;
+  
+        handleToken(token);
+        navigate('/home');
+      } else {
+        console.log("try again");
+      }
+      console.log("Login successful:", res.data);
+      console.log("token",res.data.token)
       // Redirect or perform actions after successful login
     } catch (error) {
       console.error("Error logging in:", error);

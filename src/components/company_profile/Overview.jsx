@@ -90,8 +90,10 @@ const Overview = () => {
       toast.success("Social Media Update Successfully!");
       console.log(
         "Social Media Form Data submitted successfully:",
+
         response.data
       );
+      setEdit2(!edit2)
       setSocialMediaFormData(response.data);
     } catch (error) {
       console.error("Error submitting social media form data:", error);
@@ -108,12 +110,12 @@ const Overview = () => {
 
   return (
     <div>
-      <div className="bg-slate-200 h-[100vh]">
+      <div className="bg-slate-200 h-[100vh] w-[100%]">
         <Toaster />
-        <div className="container mx-auto w-[45%] py-2">
+        <div className="container mx-auto w-[full] md:w-[50%] sm:w-full py-2 md:">
           <div>
             <div className="flex flex-row items-center justify-between p-1 bg-slate-50 border-b-[0.7px] border-gray-500 mb-1">
-              <h1 className="text-xl font-semibold mb-4 ml-1">Overview</h1>
+              <h1 className="text-xl font-semibold mb-4 ml-1 pl-2 text-center pt-2 text-slate-700">Overview</h1>
               <div
                 onClick={handleEdit}
                 className="mr-1 text-xl text-center font-bold cursor-pointer"
@@ -292,12 +294,12 @@ const Overview = () => {
                     <div className="flex flex-row justify-around">
                       <div className="p-1 bg-slate-50 pl-3 w-[50%]">
                         <div className="m-1 p-2">
-                          <label htmlFor="companyName1" className="text-normal">
+                          <label htmlFor="companyName1" className="text-normal font-medium">
                             Registered Company Name
                           </label>
                           <h1
                             id="companyName1"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                             {companyData && companyData.companyName
                               ? companyData.companyName
@@ -307,13 +309,13 @@ const Overview = () => {
                         <div className="m-1 p-2">
                           <label
                             htmlFor="companyEmail1"
-                            className="text-normal"
+                            className="text-normal font-medium"
                           >
                             Company Official Email
                           </label>
                           <h1
                             id="companyEmail1"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                             {companyData && companyData.companyEmail
                               ? companyData.companyEmail
@@ -323,13 +325,13 @@ const Overview = () => {
                         <div className="m-1 p-2">
                           <label
                             htmlFor="companyWebsite1"
-                            className="text-normal"
+                            className="text-normal font-medium"
                           >
                             Company Website
                           </label>
                           <h1
                             id="companyWebsite1"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                             {companyData && companyData.website
                               ? companyData.website
@@ -337,12 +339,12 @@ const Overview = () => {
                           </h1>
                         </div>
                         <div className="m-1 p-2">
-                          <label htmlFor="industryType" className="text-normal">
+                          <label htmlFor="industryType"     className="text-normal font-medium">
                             Industry Type
                           </label>
                           <h1
                             id="industryType"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                        
                             {companyData && companyData.industryType
@@ -353,12 +355,12 @@ const Overview = () => {
                       </div>
                       <div className="p-1 bg-slate-50 pl-3 w-[50%]">
                         <div className="m-1 p-2 flex flex-col">
-                          <label htmlFor="companyName2" className="text-normal">
+                          <label htmlFor="companyName2" className="text-normal font-medium">
                             Brand Name
                           </label>
                           <h1
                             id="companyName2"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                            
                             {companyData && companyData.brandName
@@ -369,13 +371,13 @@ const Overview = () => {
                         <div className="m-1 p-2">
                           <label
                             htmlFor="companyEmail2"
-                            className="text-normal"
+                            className="text-normal font-medium"
                           >
                             Company Official Contact
                           </label>
                           <h1
                             id="companyEmail2"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                             {/* {companyData.companyContact} */}
                             {companyData && companyData.companyContact
@@ -386,13 +388,13 @@ const Overview = () => {
                         <div className="m-1 p-2">
                           <label
                             htmlFor="companyWebsite2"
-                            className="text-normal"
+                            className="text-normal font-medium"
                           >
                             Domain Name
                           </label>
                           <h1
                             id="companyWebsite2"
-                            className="text-lg font-semibold"
+                            className="text-sm font-normal"
                           >
                             {/* {companyData.domainName} */}
                             {companyData && companyData.domainName
@@ -408,7 +410,7 @@ const Overview = () => {
             </div>
           </div>
         </div>
-        <div className="container mx-auto w-[45%] py-2">
+        <div className="container mx-auto w-[full] md:w-[50%] sm:w-full py-2">
           <div>
             <div className="flex flex-row items-center justify-between p-1 bg-slate-50 border-b-[0.7px] border-gray-500 mb-1">
               <h1 className="text-xl font-semibold mb-4 ml-1">Social Media</h1>
@@ -423,27 +425,27 @@ const Overview = () => {
             <div className="bg-slate-100 h-50 pt-1">
               {!edit2 ? (
                 <div className="flex flex-row items-center  justify-start gap-2 ml-5  h-[60px]">
-                  <Link to="">
-                    {" "}
+                  <Link to={companyData && companyData.linkedinUrl}>
+                  
                     <div className="text-3xl text-blue-700 rounded-full">
                       <ImLinkedin />
-                    </div>{" "}
+                    </div>
                   </Link>
 
-                  <Link to="">
-                    {" "}
+                  <Link to={companyData && companyData.facebookUrl}>
+                    
                     <div className="text-3xl text-blue-700 rounded-full">
                       <FaFacebook />
                     </div>
                   </Link>
-                  <Link to="">
-                    {" "}
+                  <Link to={companyData && companyData.twitterUrl}>
+                
                     <div className="text-3xl text-white bg-black rounded-full">
                       <FaTwitter />
                     </div>
                   </Link>
-                  <Link to="">
-                    {" "}
+                  <Link to={companyData && companyData.youtubeUrl}>
+                  
                     <div className="text-3xl text-white bg-red-500 rounded-full">
                       <AiFillYoutube />
                     </div>

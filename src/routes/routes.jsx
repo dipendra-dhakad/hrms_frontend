@@ -40,6 +40,7 @@ import { AuditHistory } from "../components/payroll/AuditHistory";
 import Statutory_temprary from "../components/company_profile/Statutory_temprary";
 import { Personal } from "../components/my_profile/Personal";
 import { Document } from "../components/my_profile/Document";
+
 const router = createBrowserRouter([
   {
     path: "/company-profile",
@@ -47,7 +48,9 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/company-profile",
-        element: <Overview />,
+        element:(
+         <Overview />
+        ),
       },
       {
         path: "overview",
@@ -216,7 +219,7 @@ const router = createBrowserRouter([
   },
 
   {
-    path: "/",
+    path: "/home",
     element: <Home />,
   },
   {

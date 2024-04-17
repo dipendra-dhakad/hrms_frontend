@@ -404,10 +404,13 @@ import { TbFileInvoice } from "react-icons/tb";
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { CgClose } from "react-icons/cg";
-
+import { setSidebar } from "../redux/slices/SidebarSlice";
+import { useDispatch, useSelector } from "react-redux";
 export const Sidebar = () => {
   const [currentLocation, setLocation] = useState("");
   const locationc = useLocation();
+  const sidebar = useSelector((state) => state.sidebar);
+  const dispatch = useDispatch();
   useEffect(() => {
     setLocation(locationc.pathname.slice(5, locationc.pathname.length));
   }, [locationc]);
@@ -417,20 +420,22 @@ export const Sidebar = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
-
+   const handleCloseSlidebar =()=>{
+    dispatch(setSidebar(!sidebar));
+   }
   return (
     <>
-      <button
+      {/* <button
         className="fixed xl:hidden block left-3 top-4"
         onClick={() => {
           setSlide(!slide);
         }}
       >
         <CgMenuLeftAlt size={30} />
-      </button>
+      </button> */}
       <div
         className={`top-[70px] w-full min-h-[100vh] h-full flex gap-0 transition-all xl:opacity-100  xl:w-14 xl:hover:w-52 xl:pointer-events-auto fixed top-20${
-          slide ? "opacity-0 pointer-events-none " : "opactiy-100"
+          slide ? "opacity-0  " : "opacity-100"
         }`}
       >
         <div class=" flex flex-col flex-auto flex-shrink-0 antialiased bg-white text-gray-800 w-52 xl:w-14 xl:hover:w-52">
@@ -509,6 +514,26 @@ export const Sidebar = () => {
                         </span>
                         <span class="ml-2 text-sm tracking-wide truncate">
                           Address
+                        </span>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={() => {
+                          setSlide(true);
+                        }}
+                        to="/company-profile/overview"
+                        class={`relative flex flex-row items-center h-11 focus:outline-none hover:bg-gray-50 text-gray-600 hover:text-gray-800 border-l-4 ${
+                          currentLocation === "create-account"
+                            ? "border-blue-900"
+                            : "border-transparent"
+                        }  hover:border-blue-900 pr-6`}
+                      >
+                        <span class="inline-flex justify-center items-center ml-4">
+                          <MdAccountBox size={20} />
+                        </span>
+                        <span class="ml-2 text-sm tracking-wide truncate">
+                       Overview
                         </span>
                       </Link>
                     </li>
@@ -1339,16 +1364,12 @@ export const Sidebar = () => {
           </div>
         </div>
         <div
-          className="w-[calc(100%-208px)] h-full xl:opacity-0 realtive bg-[#0003] cursor-pointer xl:pointer-events-none"
-          onClick={() => {
-            setSlide(true);
-          }}
+          className="w-[calc(100%-208px)] h-full xl:opacity-0 realtive bg-[#0003] cursor-pointer xl:pointer-events-none sm:pointer-events-auto"
+          onClick={handleCloseSlidebar}
         >
           <button
             className="absolute right-2 top-2 bg-gray-200 border border-gray-100 rounded-full flex justify-center items-center w-7 h-7 hover:rotate-90 duration-200"
-            onClick={() => {
-              setSlide(true);
-            }}
+            onClick={handleCloseSlidebar}
           >
             <CgClose />
           </button>

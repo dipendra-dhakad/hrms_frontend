@@ -10,13 +10,13 @@ export const CompanyProfile = () => {
   const { sidebar } = useSelector((state) => state.sidebar);
 
   return (
-    <>
+    <div className="w-[100%] h-[100%]">
       <div className="relative">
         <div className="absolute">{sidebar ? <Sidebar /> : null}</div>
         <Navbar />
-        <SubNav />
+   
         <Outlet />
       </div>
-    </>
+    </div>
   );
 };
