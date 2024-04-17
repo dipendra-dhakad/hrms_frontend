@@ -1,5 +1,5 @@
 import { MdOutlineDeleteOutline } from "react-icons/md";
-import React, { useState } from "react";
+import  { useState } from "react";
 import { FiEdit2 } from "react-icons/fi";
 import { AiFillPlusCircle } from "react-icons/ai";
 import { RxCross2 } from "react-icons/rx";
@@ -30,7 +30,7 @@ export const Department = () => {
 
   return (
     <div className="w-[100vw] flex  justify-center mt-3 pt-1 bg-slate-100   ">
-        <div className="flex flex-col   w-[44%] h-auto justify-evenly  rounded-sm ">
+        <div className="flex flex-col sm:w-full md:w-[44%] xl:w-[44%] h-auto justify-evenly  rounded-sm ">
 
         <div className="  flex flex-col h-auto mt-2 bg-white shadow-md">
           <div className="flex flex-row justify-between  items-center border-b-[0.3px] p-2 border-gray-300">
@@ -44,8 +44,8 @@ export const Department = () => {
           <div className="flex flex-row justify-between  items-center border-b-[0.3px] p-4 pl-5 border-gray-300">
             <div>
               <h1 className=" text-sm text-gray-800 font-medium">
-                {" "}
-                Department{" "}
+                
+                Department
               </h1>
             </div>
             <div>
@@ -83,7 +83,7 @@ export const Department = () => {
                     onChange={(event) =>
                       handleInputChange(inputField.id, event)
                     }
-                    className="focus:outline-blue-300 p-1 ml-3 border border-gray-300 form-input"
+                    className="focus:outline-blue-300 p-1 md:ml-3  border border-gray-300 form-input"
                   />
                   {index === inputFields.length - 1 && (
                     <div className="flex flex-row items-center text-blue-500">
@@ -123,17 +123,17 @@ export const Department = () => {
 
             <div className="h-[100px] flex flex-row items-center justify-end bg-white">
               <div className="flex flex-row ">
-                <div class="bg-white flex gap-1 flex-row items-center justify-center rounded p-2  hover:scale-105 border border-gray-300">
-                  <RxCross2 class="text-black text-sm font-semibold" />
-                  <button class="text-black text-sm font-semibold">
+                <div className="bg-white flex gap-1 flex-row items-center justify-center rounded p-2  hover:scale-105 border border-gray-300">
+                  <RxCross2 className="text-black text-sm font-semibold" />
+                  <button className="text-black text-sm font-semibold">
                     CANCEL
                   </button>
                 </div>
-                <div class="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
-                  <AiOutlineCheck class="text-xl" />
+                <div className="bg-blue-600 flex items-center justify-center rounded p-2 m-1 text-white hover:scale-105 hover:shadow-md">
+                  <AiOutlineCheck className="text-xl" />
                   <button
                     type="submit"
-                    class="text-white text-sm font-semibold pl-3 pr-3"
+                    className="text-white text-sm font-semibold pl-3 pr-3"
                   >
                     SAVE
                   </button>

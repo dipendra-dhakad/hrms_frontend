@@ -82,7 +82,7 @@ export const Announcement = () => {
 
   return (
     <div className="flex items-center justify-center mt-4">
-      <div className="w-[44%] bg-slate-50 p-6 rounded-lg shadow-lg">
+      <div className="md:w-[44%] xl:w-[44%] sm:w-full w-full bg-slate-50 p-6 rounded-lg shadow-lg">
         <div className="text-xl font-bold mb-4">Announcements</div>
         <div className="flex items-center mb-4" onClick={handleToggleForm}>
           <BiMessageError className="text-blue-500 mr-2 cursor-pointer" />

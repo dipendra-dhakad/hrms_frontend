@@ -126,7 +126,7 @@ export const Policies = () => {
 
   return (
     <div className='flex items-center justify-center'>
-      <div className='w-[44%]'>
+      <div className=' md:w-[44%] xl:w-[44%] sm:w-full w-full'>
         <div className="bg-gray-200 rounded-t-lg p-4">
           <h1 className="text-xl font-bold uppercase">Company Policies</h1>
         </div>

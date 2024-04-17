@@ -804,13 +804,13 @@ export const Designation = () => {
   };
 
   return (
-    <div className="flex items-center justify-center mt-3">
-      <div>
-        <div className='flex border-b border-blue-500 w-[44vw] p-1'>
+    <div className="flex items-center justify-center mt-3 w-[100%]">
+      <div className="sm:w-full xl:w-[44%] md:w-[44vw] w-[100%]">
+        <div className='flex border-b border-blue-500 sm:w-full xl:w-[44%] md:w-[44vw] p-1'>
           <div className='px-2'><button onClick={() => handleVisibleForm('designation')} className={`px-2 py-2 rounded-md ${activeButton === 'designation' ? 'bg-blue-500 text-white' : ''}`}>Designations</button></div>
           <div className='px-1'><button onClick={() => handleVisibleForm('grade')} className={`px-2 py-2 rounded-md ${activeButton === 'grade' ? 'bg-blue-500 text-white' : ''}`}>Grade</button></div>
         </div>
-        {btn ? (
+        {!btn ? (
           <div className="bg-slate-50 mt-5 pt-3 shadow-xl">
             <div className="flex flex-row p-2 border-b border-gray-300">
               <div className="w-[50%] flex items-center pl-3">Designation</div>
